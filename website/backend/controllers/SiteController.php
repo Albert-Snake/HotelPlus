@@ -6,6 +6,7 @@ use common\models\LoginForm;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\Console;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -80,8 +81,16 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            if (Yii::$app->user->can('updatePost')) {
+                return $this->goBack();
+            }
+
+            else{
+                echo '<script>alert("Utilizador Inválido - Contacte o Administrador se este erro perssistir")</script>';
+                Yii::$app->user->logout();
+            }
         }
+
 
         $model->password = '';
 
