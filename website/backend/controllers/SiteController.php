@@ -66,6 +66,16 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionIndexCozinha()
+    {
+        return $this->render('indexcozinha');
+    }
+
+    public function actionIndexLimpeza()
+    {
+        return $this->render('indexLimpeza');
+    }
+
     /**
      * Login action.
      *
@@ -81,8 +91,16 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            if (Yii::$app->user->can('updatePost')) {
+            if (Yii::$app->user->can('crudAll')) {
                 return $this->goBack();
+            }
+
+            elseif(Yii::$app->user->can('crudCozinha')){
+                return $this->actionIndexCozinha();
+            }
+
+            elseif(Yii::$app->user->can('crudLimpeza')){
+                return $this->render('indexLimpeza');
             }
 
             else{
