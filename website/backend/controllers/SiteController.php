@@ -6,6 +6,7 @@ use common\models\LoginForm;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\Console;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -65,6 +66,16 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionIndexCozinha()
+    {
+        return $this->render('indexcozinha');
+    }
+
+    public function actionIndexLimpeza()
+    {
+        return $this->render('indexLimpeza');
+    }
+
     /**
      * Login action.
      *
@@ -80,8 +91,24 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            if (Yii::$app->user->can('crudAll')) {
+                return $this->goBack();
+            }
+
+            elseif(Yii::$app->user->can('crudCozinha')){
+                return $this->actionIndexCozinha();
+            }
+
+            elseif(Yii::$app->user->can('crudLimpeza')){
+                return $this->render('indexLimpeza');
+            }
+
+            else{
+                echo '<script>alert("Utilizador Inválido - Contacte o Administrador se este erro persistir")</script>';
+                Yii::$app->user->logout();
+            }
         }
+
 
         $model->password = '';
 

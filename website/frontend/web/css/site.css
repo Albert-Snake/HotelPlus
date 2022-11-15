@@ -101,3 +101,9 @@ a.desc:after {
 {
     text-decoration: none;
 }
+.svglogonav{
+    filter: invert(1);
+    width: 120%;
+    height: 120%;
+    padding-right: 30px;
+}
