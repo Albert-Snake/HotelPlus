@@ -63,12 +63,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if(Yii::$app->user->can('crudAll')) {
-            return $this->render('index');
-        }
-        else{
-            return Yii::$app->user->logout();
-        }
+        return $this->render('index');
     }
 
     public function actionIndexCozinha()
@@ -99,17 +94,17 @@ class SiteController extends Controller
             if (Yii::$app->user->can('crudAll')) {
                 return $this->goBack();
             }
-/*
+
             elseif(Yii::$app->user->can('crudCozinha')){
                 return $this->actionIndexCozinha();
             }
 
             elseif(Yii::$app->user->can('crudLimpeza')){
                 return $this->render('indexLimpeza');
-            }*/
+            }
 
             else{
-                echo '<script>alert("Utilizador Inválido - Contacte o Administrador se este erro perssistir")</script>';
+                echo '<script>alert("Utilizador Inválido - Contacte o Administrador se este erro persistir")</script>';
                 Yii::$app->user->logout();
             }
         }
