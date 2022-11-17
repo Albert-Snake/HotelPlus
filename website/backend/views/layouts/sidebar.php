@@ -1,8 +1,14 @@
+<?php
+
+use yii\helpers\Html;
+
+?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <link rel="stylesheet" href="/css/site.css">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="<?=$assetDir?>/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <img src= "/img/HPLogo48x48.svg" alt="HotelPlus" class="svglogonav">
+        <!--<span class="brand-text font-weight-light">HotelPlus</span>--!>
     </a>
 
     <!-- Sidebar -->
@@ -10,10 +16,23 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?=$assetDir?>/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <?php
+                if(Yii::$app->user->can('crudAll')){
+                    echo "<img src='/img/crown48.png' class='img-circle elevation-2' alt='Administrador'>";
+                }
+                elseif (Yii::$app->user->can('crudCozinha')){
+                    echo "<img src='/img/fork48.png' class='img-circle elevation-2' alt='Cozinha'>";
+                }
+                elseif (Yii::$app->user->can('crudLimpeza')){
+                    $cargo = 'Limpezas';
+                }
+                ?>
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <?php
+                $nome = Yii::$app->user->identity->username;
+                    echo "<p class='labelNome'>$nome</p>";
+                ?>
             </div>
         </div>
 
@@ -45,10 +64,10 @@
                         ]
                     ],
                     ['label' => 'Simple Link', 'icon' => 'th', 'badge' => '<span class="right badge badge-danger">New</span>'],
-                    ['label' => 'Yii2 PROVIDED', 'header' => true],
-                    ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
-                    ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank'],
-                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank'],
+                    ['label' => 'Área do Programador', 'header' => true, 'visible' => Yii::$app->user->can('crudAll')],
+                    ['label' => 'PHPMyAdmin', 'url' => 'http://localhost/phpmyadmin/index.php?route=/database/structure&db=hp', 'visible' => Yii::$app->user->can('crudAll')],
+                    ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank', 'visible' => Yii::$app->user->can('crudAll')],
+                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank', 'visible' => Yii::$app->user->can('crudAll')],
                     ['label' => 'MULTI LEVEL EXAMPLE', 'header' => true],
                     ['label' => 'Level1'],
                     [
@@ -72,8 +91,15 @@
                     ['label' => 'Important', 'iconStyle' => 'far', 'iconClassAdded' => 'text-danger'],
                     ['label' => 'Warning', 'iconClass' => 'nav-icon far fa-circle text-warning'],
                     ['label' => 'Informational', 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
+                    ['label' => 'Terminar Sessão', 'header' => true],
                 ],
             ]);
+            echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
+                . Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'label']
+                )
+                . Html::endForm();
             ?>
         </nav>
         <!-- /.sidebar-menu -->

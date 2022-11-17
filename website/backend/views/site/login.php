@@ -1,10 +1,13 @@
 <?php
 use yii\helpers\Html;
 ?>
+<link rel="stylesheet" href="/css/site.css">
+<div class="container text-center">
+    <img src= "/img/HPLogo48x48.svg" alt="HotelPlus" class="svgLogin">
+</div>
 <div class="card">
-    <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
-
+    <div class="card-body login-card-body text-center">
+        <p class="login-box-msg">HotelPlus - BackOffice</p>
         <?php $form = \yii\bootstrap4\ActiveForm::begin(['id' => 'login-form']) ?>
 
         <?= $form->field($model,'username', [
@@ -35,29 +38,19 @@ use yii\helpers\Html;
                     'uncheck' => null
                 ]) ?>
             </div>
-            <div class="col-4">
-                <?= Html::submitButton('Sign In', ['class' => 'btn btn-primary btn-block']) ?>
+            <div class="col-4 text-center">
+                <?= Html::submitButton('Iniciar Sessão', ['class' => 'btn btn-primary btn-block']) ?>
             </div>
         </div>
 
         <?php \yii\bootstrap4\ActiveForm::end(); ?>
-
-        <div class="social-auth-links text-center mb-3">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-primary">
-                <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-            </a>
-            <a href="#" class="btn btn-block btn-danger">
-                <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-            </a>
-        </div>
         <!-- /.social-auth-links -->
 
         <p class="mb-1">
-            <a href="forgot-password.html">I forgot my password</a>
+            <a href="forgot-password.html">Esqueci-me da minha password</a>
         </p>
         <p class="mb-0">
-            <a href="register.html" class="text-center">Register a new membership</a>
+            <a href="register.html" class="text-center">Contactar um administrador</a>
         </p>
     </div>
     <!-- /.login-card-body -->
