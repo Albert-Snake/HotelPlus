@@ -44,6 +44,8 @@
                             ['label' => 'Inactive Page', 'iconStyle' => 'far'],
                         ]
                     ],
+                    ['label' => 'Mesas', 'header' => true],
+                    ['label' => 'Ver Mesas', 'url' => ['mesas/index'], 'icon' => 'sign-in-alt'],
                     ['label' => 'Simple Link', 'icon' => 'th', 'badge' => '<span class="right badge badge-danger">New</span>'],
                     ['label' => 'Yii2 PROVIDED', 'header' => true],
                     ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
