@@ -7,7 +7,7 @@ $this->title = 'Hotel Plus';
 <div class="site-index">
     <div class="p-5 mb-4 bg-transparent rounded-3">
         <div class="container-fluid py-5 text-center">
-            <img width="400px" height="400px" src="/imgs/HPLogo48x48.svg">
+            <img width="400px" height="400px" src="../web/imgs/HPLogo48x48.svg">
 <!--            <h1 class="display-4">Congratulations!</h1>-->
 <!--            <p class="fs-5 fw-light">You have successfully created your Yii-powered application.</p>-->
 <!--            <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>-->
