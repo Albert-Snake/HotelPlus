@@ -96,7 +96,7 @@ class SiteController extends Controller
             }
 
             elseif(Yii::$app->user->can('crudCozinha')){
-                return $this->actionIndexCozinha();
+                return $this->goBack();
             }
 
             elseif(Yii::$app->user->can('crudLimpeza')){

@@ -88,3 +88,26 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.labelNome{
+    color: white;
+}
+
+.svglogonav{
+    filter: invert(1);
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.svgLogin{
+    width: 25%;
+    height: 25%;
+    margin: auto;
+}
+
+.input-group-text{
+    visibility: collapse;
+}
+
+
