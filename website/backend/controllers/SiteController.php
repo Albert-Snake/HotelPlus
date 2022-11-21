@@ -100,7 +100,7 @@ class SiteController extends Controller
             }
 
             elseif(Yii::$app->user->can('crudLimpeza')){
-                return $this->render('indexLimpeza');
+                return $this->goBack();
             }
 
             else{

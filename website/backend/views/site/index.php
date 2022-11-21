@@ -1,20 +1,9 @@
 <?php
+
+use common\models\User;
+use common\models\UserSearch;
+
 $this->title = 'HotelPlus - Dashboard';
-
-$con = mysqli_connect("localhost","root","","hp");
-
-// SQL query to display row count
-// in building table
-$sql = 'SELECT * from user';
-
-if ($result = mysqli_query($con, $sql)) {
-
-    // Return the number of rows in result set
-    $rowcount = mysqli_num_rows( $result );
-}
-
-// Close the connection
-mysqli_close($con);
 
 ?>
 <div class="container-fluid">
@@ -136,12 +125,13 @@ mysqli_close($con);
             ]) --!>
             <?php \hail812\adminlte\widgets\SmallBox::end() ?>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12 text-center">
             <?= \hail812\adminlte\widgets\SmallBox::widget([
-                'title' => $rowcount,
+                'title' => User::find()->count(),
                 'text' => 'Utilizadores Registados',
                 'icon' => 'fas fa-user-plus',
                 'theme' => 'gradient-success',
+                'linkUrl'=>'user/index',
                 //'loadingStyle' => true
             ]) ?>
         </div>
