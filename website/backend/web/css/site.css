@@ -91,6 +91,7 @@ a.desc:after {
 
 .labelNome{
     color: white;
+    font-size: larger;
 }
 
 .svglogonav{
@@ -108,6 +109,15 @@ a.desc:after {
 
 .input-group-text{
     visibility: collapse;
+}
+
+.nav-header{
+    text-align: center;
+    font-weight: bold;
+}
+
+ul.nav.nav-treeview{
+    text-align: center;
 }
 
 

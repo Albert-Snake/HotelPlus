@@ -24,7 +24,7 @@ use yii\helpers\Html;
                     echo "<img src='/img/fork48.png' class='img-circle elevation-2' alt='Cozinha'>";
                 }
                 elseif (Yii::$app->user->can('crudLimpeza')){
-                    $cargo = 'Limpezas';
+                    echo "<img src='/img/cleaning.png' class='img-circle elevation-2' alt='Limpeza'>";
                 }
                 ?>
             </div>
@@ -54,52 +54,48 @@ use yii\helpers\Html;
             <?php
             echo \hail812\adminlte\widgets\Menu::widget([
                 'items' => [
-                    [
-                        'label' => 'Starter Pages',
-                        'icon' => 'tachometer-alt',
-                        'badge' => '<span class="right badge badge-info">2</span>',
-                        'items' => [
-                            ['label' => 'Active Page', 'url' => ['site/index'], 'iconStyle' => 'far'],
-                            ['label' => 'Inactive Page', 'iconStyle' => 'far'],
-                        ]
-                    ],
-                    ['label' => 'Simple Link', 'icon' => 'th', 'badge' => '<span class="right badge badge-danger">New</span>'],
                     ['label' => 'Área do Programador', 'header' => true, 'visible' => Yii::$app->user->can('crudAll')],
-                    ['label' => 'PHPMyAdmin', 'url' => 'http://localhost/phpmyadmin/index.php?route=/database/structure&db=hp', 'visible' => Yii::$app->user->can('crudAll')],
+                    ['label' => 'PHPMyAdmin', 'icon' => 'database', 'url' => 'http://localhost/phpmyadmin/index.php?route=/database/structure&db=hp', 'target' => '_blank','visible' => Yii::$app->user->can('crudAll')],
                     ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank', 'visible' => Yii::$app->user->can('crudAll')],
                     ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank', 'visible' => Yii::$app->user->can('crudAll')],
-                    ['label' => 'MULTI LEVEL EXAMPLE', 'header' => true],
-                    ['label' => 'Level1'],
-                    [
-                        'label' => 'Level1',
+                    ['label' => 'Páginas', 'header' => true, 'visible' => Yii::$app->user->can('crudAll')],
+                    ['label' => 'Utilizadores',  'icon' => 'users', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Level2', 'iconStyle' => 'far'],
-                            [
-                                'label' => 'Level2',
-                                'iconStyle' => 'far',
-                                'items' => [
-                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle'],
-                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle'],
-                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle']
-                                ]
-                            ],
-                            ['label' => 'Level2', 'iconStyle' => 'far']
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index']],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => ['/user/create'], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
                         ]
                     ],
-                    ['label' => 'Level1'],
-                    ['label' => 'LABELS', 'header' => true],
-                    ['label' => 'Important', 'iconStyle' => 'far', 'iconClassAdded' => 'text-danger'],
-                    ['label' => 'Warning', 'iconClass' => 'nav-icon far fa-circle text-warning'],
-                    ['label' => 'Informational', 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
-                    ['label' => 'Terminar Sessão', 'header' => true],
+                    ['label' => 'Restauração',  'icon' => 'utensils', 'visible' => Yii::$app->user->can('crudCozinha'),
+                        'items' => [
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                        ]
+                    ],
+                    ['label' => 'Limpezas',  'icon' => 'broom', 'visible' => Yii::$app->user->can('crudLimpeza'),
+                        'items' => [
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                        ]
+                    ],
+                    ['label' => 'Quartos',  'icon' => 'door-open', 'visible' => Yii::$app->user->can('crudAll'),
+                        'items' => [
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                        ]
+                    ],
+                    ['label' => 'Marcações',  'icon' => 'calendar', 'visible' => Yii::$app->user->can('crudAll'),
+                        'items' => [
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                        ]
+                    ],
                 ],
             ]);
-            echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'label']
-                )
-                . Html::endForm();
             ?>
         </nav>
         <!-- /.sidebar-menu -->

@@ -55,7 +55,7 @@ class SignupForm extends Model
 
             // the following three lines were added:
             $auth = \Yii::$app->authManager;
-            $role = $auth->getRole('colabCozinha');
+            $role = $auth->getRole('cliente');
             $auth->assign($role, $user->getId());
 
             return $user;
