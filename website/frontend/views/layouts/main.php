@@ -28,7 +28,7 @@ AppAsset::register($this);
 <header>
     <?php
     NavBar::begin([
-        'brandLabel' =>'<img src= "../web/imgs/HPLogo48x48.svg" alt="HotelPlus" class="svglogonav">',
+        'brandLabel' => Html::img('@web/imgs/HPLogo48x48.svg', ['alt'=>'Hotel Plus', 'class'=>'svglogonav']),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
@@ -50,8 +50,8 @@ AppAsset::register($this);
         'items' => $menuItems,
     ]);
     if (Yii::$app->user->isGuest) {
-        echo Html::tag('div',Html::a('Login',['/site/login'],['class' => ['btn btn-primary login text-decoration-none']]),['class' => ['d-flex']]);
-        echo Html::tag('div',Html::a('Signup',['/site/signup'],['class' => ['btn btn-primary login text-decoration-none']]),['class' => ['d-flex']]);
+        echo Html::tag('div',Html::a('Iniciar Sessão',['/site/login'],['class' => ['btn btn-primary login text-decoration-none']]),['class' => ['d-flex']]);
+        echo Html::tag('div',Html::a('Registar',['/site/signup'],['class' => ['btn btn-primary login text-decoration-none']]),['class' => ['d-flex']]);
     } else {
         echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
             . Html::submitButton(

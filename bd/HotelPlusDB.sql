@@ -59,7 +59,6 @@ estado ENUM('limpo','por limpar') NOT NULL
 
 
 ALTER TABLE `mesasMarcacoes`
-  ADD CONSTRAINT `fk_mesasMarcacoes_idColaborador` FOREIGN KEY (`idColaborador`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `fk_mesasMarcacoes_idCliente` FOREIGN KEY (`idCliente`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `fk_mesasMarcacoes_idQuarto` FOREIGN KEY (`idQuarto`) REFERENCES `quartos` (`id`);
 COMMIT;
