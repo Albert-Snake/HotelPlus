@@ -54,39 +54,44 @@ use yii\helpers\Html;
             <?php
             echo \hail812\adminlte\widgets\Menu::widget([
                 'items' => [
+                    ['label' => 'Área do Programador', 'header' => true, 'visible' => Yii::$app->user->can('crudAll')],
+                    ['label' => 'PHPMyAdmin', 'icon' => 'database', 'url' => 'http://localhost/phpmyadmin/index.php?route=/database/structure&db=hp', 'target' => '_blank','visible' => Yii::$app->user->can('crudAll')],
+                    ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank', 'visible' => Yii::$app->user->can('crudAll')],
+                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank', 'visible' => Yii::$app->user->can('crudAll')],
+                    ['label' => 'Páginas', 'header' => true, 'visible' => Yii::$app->user->can('crudAll')],
                     ['label' => 'Utilizadores',  'icon' => 'users', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index']],
                             ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => ['/user/create'], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
                         ]
                     ],
                     ['label' => 'Restauração',  'icon' => 'utensils', 'visible' => Yii::$app->user->can('crudCozinha'),
                         'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
-                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => ['/user/create'], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
                         ]
                     ],
                     ['label' => 'Limpezas',  'icon' => 'broom', 'visible' => Yii::$app->user->can('crudLimpeza'),
                         'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
-                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => ['/user/create'], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
                         ]
                     ],
                     ['label' => 'Quartos',  'icon' => 'door-open', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
-                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => ['/user/create'], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
                         ]
                     ],
                     ['label' => 'Marcações',  'icon' => 'calendar', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
-                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => ['/user/create'], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index'], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
                         ]
                     ],
                 ],
