@@ -14,6 +14,11 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $nome;
+    public $apelido;
+    public $cargo;
+    public  $nif;
+    public $telefone;
 
 
     /**
@@ -35,6 +40,12 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+            ['nome', 'string', 'max' => 255],
+            ['apelido', 'string', 'max' => 255],
+            ['cargo', 'string', 'max' => 255],
+            ['nif', 'integer'],
+            ['telefone', 'integer'],
+
         ];
     }
 
@@ -51,12 +62,37 @@ class SignupForm extends Model
             $user->email = $this->email;
             $user->setPassword($this->password);
             $user->generateAuthKey();
+            $user->nome = $this->nome;
+            $user->apelido = $this->apelido;
+            $user->cargo = $this->cargo;
+            $user->nif =$this->nif;
+            $user->telefone = $this->telefone;
             $user->save(false);
 
-            // the following three lines were added:
-            $auth = \Yii::$app->authManager;
-            $role = $auth->getRole('cliente');
-            $auth->assign($role, $user->getId());
+            if($this->cargo == 'cliente') {
+                // the following three lines were added:
+                $auth = \Yii::$app->authManager;
+                $role = $auth->getRole('cliente');
+                $auth->assign($role, $user->getId());
+            }
+            elseif($this->cargo == 'restauração') {
+                // the following three lines were added:
+                $auth = \Yii::$app->authManager;
+                $role = $auth->getRole('colabCozinha');
+                $auth->assign($role, $user->getId());
+            }
+            elseif($this->cargo == 'limpezas') {
+                // the following three lines were added:
+                $auth = \Yii::$app->authManager;
+                $role = $auth->getRole('colabLimpeza');
+                $auth->assign($role, $user->getId());
+            }
+            elseif($this->cargo == 'admin') {
+                // the following three lines were added:
+                $auth = \Yii::$app->authManager;
+                $role = $auth->getRole('admin');
+                $auth->assign($role, $user->getId());
+            }
 
             return $user;
         }

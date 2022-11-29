@@ -2,28 +2,35 @@
 
 namespace common\models;
 
+use PHPUnit\Framework\MockObject\Builder\Identity;
 use Yii;
-use yii\base\NotSupportedException;
-use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 /**
- * User model
+ * This is the model class for table "user".
  *
- * @property integer $id
+ * @property int $id
  * @property string $username
- * @property string $password_hash
- * @property string $password_reset_token
- * @property string $verification_token
- * @property string $email
  * @property string $auth_key
- * @property integer $status
- * @property integer $created_at
- * @property integer $updated_at
- * @property string $password write-only password
+ * @property string $password_hash
+ * @property string|null $password_reset_token
+ * @property string $email
+ * @property int $status
+ * @property int $created_at
+ * @property int $updated_at
+ * @property string|null $verification_token
+ * @property string $nome
+ * @property string $apelido
+ * @property string $cargo
+ * @property int $nif
+ * @property int|null $telefone
+ *
+ * @property Estadias[] $estadias
+ * @property Limpezas[] $limpezas
+ * @property Limpezas[] $limpezas0
+ * @property Mesasmarcacoes $mesasmarcacoes
  */
-class User extends ActiveRecord implements IdentityInterface
+class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_INACTIVE = 9;
@@ -35,17 +42,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function tableName()
     {
-        return '{{%user}}';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            TimestampBehavior::class,
-        ];
+        return 'user';
     }
 
     /**
@@ -54,14 +51,42 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_INACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
+            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at', 'nome', 'apelido', 'cargo', 'nif'], 'required'],
+            [['status', 'created_at', 'updated_at', 'nif', 'telefone'], 'integer'],
+            [['cargo'], 'string'],
+            [['username', 'password_hash', 'password_reset_token', 'email', 'verification_token'], 'string', 'max' => 255],
+            [['auth_key'], 'string', 'max' => 32],
+            [['nome', 'apelido'], 'string', 'max' => 50],
+            [['username'], 'unique'],
+            [['email'], 'unique'],
+            [['password_reset_token'], 'unique'],
         ];
     }
 
     /**
      * {@inheritdoc}
      */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'username' => 'Username',
+            'auth_key' => 'Auth Key',
+            'password_hash' => 'Password Hash',
+            'password_reset_token' => 'Password Reset Token',
+            'email' => 'Email',
+            'status' => 'Status',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'verification_token' => 'Verification Token',
+            'nome' => 'Nome',
+            'apelido' => 'Apelido',
+            'cargo' => 'Cargo',
+            'nif' => 'Nif',
+            'telefone' => 'Telefone',
+        ];
+    }
+
     public static function findIdentity($id)
     {
         return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
@@ -209,5 +234,45 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    /**
+     * Gets query for [[Estadias]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEstadias()
+    {
+        return $this->hasMany(Estadias::class, ['idCliente' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Limpezas]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLimpezas()
+    {
+        return $this->hasMany(Limpezas::class, ['idCliente' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Limpezas0]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLimpezas0()
+    {
+        return $this->hasMany(Limpezas::class, ['idColaborador' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Mesasmarcacoes]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMesasmarcacoes()
+    {
+        return $this->hasOne(Mesasmarcacoes::class, ['idCliente' => 'id']);
     }
 }
