@@ -96,24 +96,28 @@ class UserController extends Controller
                 // the following three lines were added:
                 $auth = \Yii::$app->authManager;
                 $role = $auth->getRole('cliente');
+                $auth->revokeAll($id);
                 $auth->assign($role, $id);
             }
             elseif($model->cargo == 'restauração') {
                 // the following three lines were added:
                 $auth = \Yii::$app->authManager;
                 $role = $auth->getRole('colabCozinha');
+                $auth->revokeAll($id);
                 $auth->assign($role, $id);
             }
             elseif($model->cargo == 'limpezas') {
                 // the following three lines were added:
                 $auth = \Yii::$app->authManager;
                 $role = $auth->getRole('colabLimpeza');
+                $auth->revokeAll($id);
                 $auth->assign($role, $id);
             }
             elseif($model->cargo == 'admin') {
                 // the following three lines were added:
                 $auth = \Yii::$app->authManager;
                 $role = $auth->getRole('admin');
+                $auth->revokeAll($id);
                 $auth->assign($role, $id);
             }
             return $this->redirect(['view', 'id' => $model->id]);
@@ -133,7 +137,11 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
+        $auth = \Yii::$app->authManager;
+        $auth->revokeAll($id);
         $this->findModel($id)->delete();
+        $auth = \Yii::$app->authManager;
+        $auth->revokeAll($id);
 
         return $this->redirect(['index']);
     }
