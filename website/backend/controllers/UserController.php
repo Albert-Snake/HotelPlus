@@ -90,8 +90,32 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            //atualiza o RBAC do Utilizador após update á conta
+            if($model->cargo == 'cliente') {
+                // the following three lines were added:
+                $auth = \Yii::$app->authManager;
+                $role = $auth->getRole('cliente');
+                $auth->assign($role, $id);
+            }
+            elseif($model->cargo == 'restauração') {
+                // the following three lines were added:
+                $auth = \Yii::$app->authManager;
+                $role = $auth->getRole('colabCozinha');
+                $auth->assign($role, $id);
+            }
+            elseif($model->cargo == 'limpezas') {
+                // the following three lines were added:
+                $auth = \Yii::$app->authManager;
+                $role = $auth->getRole('colabLimpeza');
+                $auth->assign($role, $id);
+            }
+            elseif($model->cargo == 'admin') {
+                // the following three lines were added:
+                $auth = \Yii::$app->authManager;
+                $role = $auth->getRole('admin');
+                $auth->assign($role, $id);
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
