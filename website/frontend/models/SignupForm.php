@@ -69,10 +69,40 @@ class SignupForm extends Model
                 $user->generateAuthKey();
                 $user->nome = $this->nome;
                 $user->apelido = $this->apelido;
-                $user->cargo = 'Cliente';
+                $user->cargo = $this->cargo;
                 $user->nif = $this->nif;
                 $user->telefone = $this->telefone;
                 $user->save(false);
+
+                $id = $user->getId();
+
+                if($user->cargo == 'cliente') {
+                    // the following three lines were added:
+                    $auth = \Yii::$app->authManager;
+                    $role = $auth->getRole('cliente');
+                    $auth->assign($role, $id);
+                }
+                elseif($user->cargo == 'restauração') {
+                    // the following three lines were added:
+                    $auth = \Yii::$app->authManager;
+                    $role = $auth->getRole('colabCozinha');
+                    $auth->revokeAll($id);
+                    $auth->assign($role, $id);
+                }
+                elseif($user->cargo == 'limpezas') {
+                    // the following three lines were added:
+                    $auth = \Yii::$app->authManager;
+                    $role = $auth->getRole('colabLimpeza');
+                    $auth->revokeAll($id);
+                    $auth->assign($role, $id);
+                }
+                elseif($user->cargo == 'admin') {
+                    // the following three lines were added:
+                    $auth = \Yii::$app->authManager;
+                    $role = $auth->getRole('admin');
+                    $auth->revokeAll($id);
+                    $auth->assign($role, $id);
+                }
 
                 // the following three lines were added:
 //                $auth = \Yii::$app->authManager;
