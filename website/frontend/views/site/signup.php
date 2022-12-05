@@ -7,13 +7,13 @@
 use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
 
-$this->title = 'Signup';
+$this->title = 'Registo';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to signup:</p>
+    <p>Por favor preencha os seguintes campos para se registar:</p>
 
     <div class="row">
         <div class="col-lg-5">
@@ -22,6 +22,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
                 <?= $form->field($model, 'email') ?>
+
+                <?= $form->field($model, 'nome') ?>
+
+                <?= $form->field($model, 'apelido') ?>
+
+                <?= $form->field($model, 'nif') ?>
+
+                <?= $form->field($model, 'telefone') ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 

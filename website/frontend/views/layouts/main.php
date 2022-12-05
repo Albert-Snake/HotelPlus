@@ -34,16 +34,21 @@ AppAsset::register($this);
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
     ]);
+
     $menuItems = [
 //        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Quartos', 'url' => ['/site/about']],
-        ['label' => 'Marcações', 'url' => ['/site/about']],
+        ['label' => 'Quartos', 'url' => ['/quartos/index']],
+        ['label' => 'Estadias', 'url' => ['/estadias/index']],
         ['label' => 'Sobre', 'url' => ['/site/about']],
         ['label' => 'Contactos', 'url' => ['/site/contact']],
     ];
 //    if (Yii::$app->user->isGuest) {
 //        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
 //    }
+
+    if(!Yii::$app->user->isGuest){
+        $menuItems[] = ['label' => 'Perfil', 'url' => ['/user/index']];
+    }
 
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],
