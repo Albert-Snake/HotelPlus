@@ -14,6 +14,11 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $nome;
+    public $apelido;
+    public $cargo;
+    public $nif;
+    public $telefone;
 
 
     /**
@@ -35,6 +40,12 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+
+            ['nome', 'required'],
+            ['apelido', 'required'],
+            ['cargo', 'required'],
+            ['nif', 'required'],
+            ['telefone', 'required'],
         ];
     }
 
@@ -45,23 +56,39 @@ class SignupForm extends Model
      */
     public function signup()
     {
-        if ($this->validate()) {
-            $user = new User();
-            $user->username = $this->username;
-            $user->email = $this->email;
-            $user->setPassword($this->password);
-            $user->generateAuthKey();
-            $user->save(false);
+        try{
+            if(!$this->validate()){
+                return null;
+            }
+            $usertype = User::find()->where(['nif'=>$this->nif])->one();
+            if ($usertype==null) {
+                $user = new User();
+                $user->username = $this->username;
+                $user->email = $this->email;
+                $user->setPassword($this->password);
+                $user->generateAuthKey();
+                $user->nome = $this->nome;
+                $user->apelido = $this->apelido;
+                $user->cargo = 'Cliente';
+                $user->nif = $this->nif;
+                $user->telefone = $this->telefone;
+                $user->save(false);
 
-            // the following three lines were added:
-            $auth = \Yii::$app->authManager;
-            $role = $auth->getRole('cliente');
-            $auth->assign($role, $user->getId());
+                // the following three lines were added:
+//                $auth = \Yii::$app->authManager;
+//                $role = $auth->getRole('cliente');
+//                $auth->assign($role, $user->getId());
 
-            return $user;
+                return $user;
+            }
+            else{
+                return Yii::$app->session->setFlash('warning', 'Contribuinte já registado.');
+            }
+        }
+        catch (yii\db\IntegrityException $error){
+            return Yii::$app->session->setFlash('warning', 'Ocorreu um erro de registo. Tente novamente mais tarde.');
         }
 
-        return null;
     }
 
     /**

@@ -101,9 +101,22 @@ a.desc:after {
 {
     text-decoration: none;
 }
+
+/* NAVBAR - layouts/main.php */
 .svglogonav{
     filter: invert(1);
     width: 100%;
     height: 100%;
     padding-right: 30px;
 }
+
+/* QUARTOS */
+/*div #index-quartos {
+    background-color: #ffffff;
+    padding: 14px 25px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    border-style: solid;
+    width: 100%;
+}*/
