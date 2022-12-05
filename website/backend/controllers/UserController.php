@@ -140,8 +140,6 @@ class UserController extends Controller
         $auth = \Yii::$app->authManager;
         $auth->revokeAll($id);
         $this->findModel($id)->delete();
-        $auth = \Yii::$app->authManager;
-        $auth->revokeAll($id);
 
         return $this->redirect(['index']);
     }
