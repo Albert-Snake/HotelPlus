@@ -14,15 +14,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password')->passwordInput((['maxlength' => true]))?>
-
     <?= $form->field($model, 'email')->Input(\yii\validators\EmailValidator::className()) ?>
 
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'apelido')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cargo')->dropDownList([ 'cliente' => 'Cliente', 'limpezas' => 'Limpezas', 'restauração' => 'Restauração', 'admin' => 'AdminISTRADOR', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'cargo')->dropDownList([ 'cliente' => 'Cliente', 'limpezas' => 'Limpezas', 'restauração' => 'Restauração', 'admin' => 'Admin', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'nif')->Input(number_format(0)) ?>
 
