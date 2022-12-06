@@ -17,7 +17,7 @@ class SignupForm extends Model
     public $nome;
     public $apelido;
     public $cargo;
-    public  $nif;
+    public $nif;
     public $telefone;
 
 
@@ -40,12 +40,12 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
-            ['nome', 'string', 'max' => 255],
-            ['apelido', 'string', 'max' => 255],
-            ['cargo', 'string', 'max' => 255],
-            ['nif', 'integer'],
-            ['telefone', 'integer'],
 
+            ['nome', 'required'],
+            ['apelido', 'required'],
+            ['cargo', 'required'],
+            ['nif', 'required'],
+            ['telefone', 'required'],
         ];
     }
 
@@ -56,43 +56,58 @@ class SignupForm extends Model
      */
     public function signup()
     {
-        if ($this->validate()) {
-            $user = new User();
-            $user->username = $this->username;
-            $user->email = $this->email;
-            $user->setPassword($this->password);
-            $user->generateAuthKey();
-            $user->nome = $this->nome;
-            $user->apelido = $this->apelido;
-            $user->cargo = $this->cargo;
-            $user->nif =$this->nif;
-            $user->telefone = $this->telefone;
-            $user->save(false);
+        try{
+            if(!$this->validate()){
+                return null;
+            }
+            $usertype = User::find()->where(['nif'=>$this->nif])->one();
+            if ($usertype==null) {
+                $user = new User();
+                $user->username = $this->username;
+                $user->email = $this->email;
+                $user->setPassword($this->password);
+                $user->generateAuthKey();
+                $user->nome = $this->nome;
+                $user->apelido = $this->apelido;
+                $user->cargo = $this->cargo;
+                $user->nif = $this->nif;
+                $user->telefone = $this->telefone;
+                $user->save(false);
 
-            if($this->cargo == 'cliente') {
+                $id = $user->getId();
+
+                if($user->cargo == 'cliente') {
+                    // the following three lines were added:
+                    $auth = \Yii::$app->authManager;
+                    $role = $auth->getRole('cliente');
+                    $auth->assign($role, $id);
+                }
+                elseif($user->cargo == 'restauração') {
+                    // the following three lines were added:
+                    $auth = \Yii::$app->authManager;
+                    $role = $auth->getRole('colabCozinha');
+                    $auth->revokeAll($id);
+                    $auth->assign($role, $id);
+                }
+                elseif($user->cargo == 'limpezas') {
+                    // the following three lines were added:
+                    $auth = \Yii::$app->authManager;
+                    $role = $auth->getRole('colabLimpeza');
+                    $auth->revokeAll($id);
+                    $auth->assign($role, $id);
+                }
+                elseif($user->cargo == 'admin') {
+                    // the following three lines were added:
+                    $auth = \Yii::$app->authManager;
+                    $role = $auth->getRole('admin');
+                    $auth->revokeAll($id);
+                    $auth->assign($role, $id);
+                }
+
                 // the following three lines were added:
-                $auth = \Yii::$app->authManager;
-                $role = $auth->getRole('cliente');
-                $auth->assign($role, $user->getId());
-            }
-            elseif($this->cargo == 'restauração') {
-                // the following three lines were added:
-                $auth = \Yii::$app->authManager;
-                $role = $auth->getRole('colabCozinha');
-                $auth->assign($role, $user->getId());
-            }
-            elseif($this->cargo == 'limpezas') {
-                // the following three lines were added:
-                $auth = \Yii::$app->authManager;
-                $role = $auth->getRole('colabLimpeza');
-                $auth->assign($role, $user->getId());
-            }
-            elseif($this->cargo == 'admin') {
-                // the following three lines were added:
-                $auth = \Yii::$app->authManager;
-                $role = $auth->getRole('admin');
-                $auth->assign($role, $user->getId());
-            }
+//                $auth = \Yii::$app->authManager;
+//                $role = $auth->getRole('cliente');
+//                $auth->assign($role, $user->getId());
 
                 return $user;
             }
