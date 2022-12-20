@@ -1,47 +1,48 @@
 <?php
 
-use common\models\Mesas;
+use common\models\Mesasmarcacoes;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var common\models\MesasSearch $searchModel */
+/** @var common\models\MesasmarcacoesSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Mesas';
+$this->title = 'Mesasmarcacoes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="mesas-index">
+<div class="mesasmarcacoes-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Mesas', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Mesasmarcacoes', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-<div class="container text-center">
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'summary'=>'',
         'columns' => [
-            //['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'lotacao',
-            'forma',
+            'idCliente',
+            'idMesa',
+            'nrPessoas',
+            'data',
+            //'estado',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Mesas $model, $key, $index, $column) {
+                'urlCreator' => function ($action, Mesasmarcacoes $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],
         ],
     ]); ?>
-</div>
 
 
 </div>

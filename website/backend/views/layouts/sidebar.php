@@ -59,39 +59,60 @@ use yii\helpers\Html;
                     ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank', 'visible' => Yii::$app->user->can('crudAll')],
                     ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank', 'visible' => Yii::$app->user->can('crudAll')],
                     ['label' => 'Páginas', 'header' => true, 'visible' => Yii::$app->user->can('crudAll')],
+                    //drawer Utilizadores
                     ['label' => 'Utilizadores',  'icon' => 'users', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => ['/user/index']],
-                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => ['/user/create'], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Utilizadores',  'icon' => 'eye', 'url' => ['/user/index']],
+                            ['label' => 'Adicionar Utilizador',  'icon' => 'plus', 'url' => ['/user/create'], 'target' => '_blank'],
                         ]
                     ],
+                    //drawer Restauração com sub-drawers
                     ['label' => 'Restauração',  'icon' => 'utensils', 'visible' => Yii::$app->user->can('crudCozinha'),
                         'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
-                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            //drawer Mesas
+                            ['label' => 'Mesas',  'icon' => 'table', 'url' => [''], 'target' => '_blank',
+                                'items' => [
+                                ['label' => 'Ver Mesas',  'icon' => 'eye', 'url' => ['/mesas/index']],
+                                ['label' => 'Adicionar Mesa',  'icon' => 'plus', 'url' => ['/mesas/create']],
+                                ]
+                            ],
+                            //drawer Cardápio
+                            ['label' => 'Cardápio',  'icon' => 'book-open', 'url' => [''], 'target' => '_blank',
+                                'items' => [
+                                    ['label' => 'Ver Comidas/Bebidas',  'icon' => 'eye', 'url' => ['/cardapio/index']],
+                                    ['label' => 'Adicionar Comidas/Bebidas',  'icon' => 'plus', 'url' => ['/cardapio/create']],
+
+                                ]
+                            ],
+                            //drawer Marcações de Mesas
+                            ['label' => 'Marcações',  'icon' => 'calendar', 'url' => [''], 'target' => '_blank',
+                                'items' => [
+                                    ['label' => 'Ver Marcações',  'icon' => 'eye', 'url' => ['/mesasmarcacoes/index']],
+                                    ['label' => 'Criar Marcação',  'icon' => 'plus', 'url' => ['/mesasmarcacoes/create']],
+
+                                ]
+                            ],
                         ]
                     ],
+                    //drawer Limpezas
                     ['label' => 'Limpezas',  'icon' => 'broom', 'visible' => Yii::$app->user->can('crudLimpeza'),
-                        'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
-                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
-                        ]
+                         'items' => [
+                                 ['label' => 'Ver Limpezas',  'icon' => 'eye', 'url' => ['']],
+                             ['label' => 'Criar Limpeza',  'icon' => 'plus', 'url' => ['']],
+                         ]
                     ],
+                    //drawer Quartos
                     ['label' => 'Quartos',  'icon' => 'door-open', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
-                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Quartos',  'icon' => 'eye', 'url' => ['']],
+                            ['label' => 'Adicionar Quarto',  'icon' => 'plus', 'url' => ['']],
                         ]
                     ],
-                    ['label' => 'Marcações',  'icon' => 'calendar', 'visible' => Yii::$app->user->can('crudAll'),
+                    //drawer Marcações de estadias
+                    ['label' => 'Estadias',  'icon' => 'calendar', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
-                            ['label' => 'Adicionar Utilizador',  'icon' => 'user-plus', 'url' => [''], 'target' => '_blank'],
-                            ['label' => 'Ver Utilizadores',  'icon' => 'users', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Marcações',  'icon' => 'eye', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Criar Marcação',  'icon' => 'plus', 'url' => [''], 'target' => '_blank'],
                         ]
                     ],
                 ],

@@ -2,16 +2,16 @@
 
 namespace backend\controllers;
 
-use common\models\Mesas;
-use common\models\MesasSearch;
+use common\models\Cardapio;
+use common\models\CardapioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MesasController implements the CRUD actions for Mesas model.
+ * CardapioController implements the CRUD actions for Cardapio model.
  */
-class MesasController extends Controller
+class CardapioController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,13 +32,13 @@ class MesasController extends Controller
     }
 
     /**
-     * Lists all Mesas models.
+     * Lists all Cardapio models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new MesasSearch();
+        $searchModel = new CardapioSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -48,7 +48,7 @@ class MesasController extends Controller
     }
 
     /**
-     * Displays a single Mesas model.
+     * Displays a single Cardapio model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,22 +61,13 @@ class MesasController extends Controller
     }
 
     /**
-     * Creates a new Mesas model.
+     * Creates a new Cardapio model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Mesas();
-        if(!empty($mesaredonda)){
-            $model->forma =$model->$mesaredonda;
-        }
-        elseif(!empty($mesaquadrada)){
-            $model->forma = $model->$mesaquadrada;
-        }
-        elseif(!empty($mesaretangular)){
-            $model->forma = $model->$mesaretangular;
-        }
+        $model = new Cardapio();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -92,7 +83,7 @@ class MesasController extends Controller
     }
 
     /**
-     * Updates an existing Mesas model.
+     * Updates an existing Cardapio model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -112,7 +103,7 @@ class MesasController extends Controller
     }
 
     /**
-     * Deletes an existing Mesas model.
+     * Deletes an existing Cardapio model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -126,15 +117,15 @@ class MesasController extends Controller
     }
 
     /**
-     * Finds the Mesas model based on its primary key value.
+     * Finds the Cardapio model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Mesas the loaded model
+     * @return Cardapio the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Mesas::findOne(['id' => $id])) !== null) {
+        if (($model = Cardapio::findOne(['id' => $id])) !== null) {
             return $model;
         }
 
