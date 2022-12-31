@@ -48,10 +48,10 @@ class Mesasmarcacoes extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => 'Nº da Reserva',
             'idCliente' => 'Id Cliente',
-            'idMesa' => 'Id Mesa',
-            'nrPessoas' => 'Nr Pessoas',
+            'idMesa' => 'Mesa Nº',
+            'nrPessoas' => 'Nº de Pessoas',
             'data' => 'Data',
             'estado' => 'Estado',
         ];
@@ -75,5 +75,10 @@ class Mesasmarcacoes extends \yii\db\ActiveRecord
     public function getIdMesa0()
     {
         return $this->hasOne(Mesas::class, ['id' => 'idMesa']);
+    }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'idCliente']);
     }
 }
