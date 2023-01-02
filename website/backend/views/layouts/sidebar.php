@@ -97,22 +97,22 @@ use yii\helpers\Html;
                     //drawer Limpezas
                     ['label' => 'Limpezas',  'icon' => 'broom', 'visible' => Yii::$app->user->can('crudLimpeza'),
                          'items' => [
-                                 ['label' => 'Ver Limpezas',  'icon' => 'eye', 'url' => ['']],
-                             ['label' => 'Criar Limpeza',  'icon' => 'plus', 'url' => ['']],
+                                 ['label' => 'Ver Limpezas',  'icon' => 'eye', 'url' => ['limpezas/index']],
+                             ['label' => 'Criar Limpeza',  'icon' => 'plus', 'url' => ['limpezas/create']],
                          ]
                     ],
                     //drawer Quartos
                     ['label' => 'Quartos',  'icon' => 'door-open', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Ver Quartos',  'icon' => 'eye', 'url' => ['']],
-                            ['label' => 'Adicionar Quarto',  'icon' => 'plus', 'url' => ['']],
+                            ['label' => 'Ver Quartos',  'icon' => 'eye', 'url' => ['quartos/index']],
+                            ['label' => 'Adicionar Quarto',  'icon' => 'plus', 'url' => ['quartos/create']],
                         ]
                     ],
                     //drawer Marcações de estadias
                     ['label' => 'Estadias',  'icon' => 'calendar', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Ver Marcações',  'icon' => 'eye', 'url' => [''], 'target' => '_blank'],
-                            ['label' => 'Criar Marcação',  'icon' => 'plus', 'url' => [''], 'target' => '_blank'],
+                            ['label' => 'Ver Marcações',  'icon' => 'eye', 'url' => ['estadias/index']],
+                            ['label' => 'Criar Marcação',  'icon' => 'plus', 'url' => ['estadias/create']],
                         ]
                     ],
                 ],
