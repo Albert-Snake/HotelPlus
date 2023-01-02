@@ -49,8 +49,14 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule',
-                    'controller' => 'api/mesas'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/mesas'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/quartos'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/cardapio'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/mesasmarcacoes'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/limpezas'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/users'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/estadias'],
+
             ],
         ],
     ],
