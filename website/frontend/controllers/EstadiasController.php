@@ -4,7 +4,10 @@ namespace frontend\controllers;
 
 use common\models\Estadias;
 use common\models\EstadiasSearch;
+use common\models\Quartos;
+use DateTime;
 use Yii;
+use yii\debug\models\timeline\DataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -79,13 +82,41 @@ class EstadiasController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
-    public function actionCreate()
+    public function actionCreate($quarto)
     {
+        $idQuarto = Quartos::find()->where(['id' => $quarto])->one();
+
+        if($quarto != ''){
+            $valorNoite = $idQuarto->valorNoite;
+        }
+        else{
+            $valorNoite = null;
+        }
+
         $model = new Estadias();
+        $model->idQuarto = $quarto;
+        $model->idCliente = Yii::$app->user->identity->id;
+        $model->dataPedido = date('Y-m-d');
+        $model->duracao = 1;
+        $model->valorTotal = $valorNoite * $model->duracao;
+//        $model->idQuarto = $_GET['quarto'];
+//        $model->idCliente = Yii::$app->user->identity->id;
+//        $model->dataPedido = date('Y-m-d');
+//        $model->valorTotal = null;
+
+//        // to refresh current action
+//        $this->refresh();
+//        // or
+//        Yii::app()->controller->refresh();
 
         if ($this->request->isPost) {
+
+//            $model->duracao = date('Y-m-d',$model->dataTermo) - date('Y-m-d', $model->dataInicio);
+//            $model->valorTotal = $valorNoite * $model->lotacao;
+
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+//                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['index', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
