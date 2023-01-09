@@ -56,6 +56,11 @@ AppAsset::register($this);
     ]);
     if (Yii::$app->user->isGuest) {
         echo Html::tag('div',Html::a('Iniciar Sessão',['/site/login'],['class' => ['btn btn-primary login text-decoration-none']]),['class' => ['d-flex']]);
+        ?>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <?php
+
         echo Html::tag('div',Html::a('Registar',['/site/signup'],['class' => ['btn btn-primary login text-decoration-none']]),['class' => ['d-flex']]);
     } else {
         echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
