@@ -88,25 +88,23 @@ class EstadiasController extends Controller
 
         if($quarto != ''){
             $valorNoite = $idQuarto->valorNoite;
+            $lotacao = $idQuarto->lotacao;
+            $duracao = 1;
         }
         else{
             $valorNoite = null;
+            $lotacao = null;
+            $duracao = null;
         }
 
         $model = new Estadias();
         $model->idQuarto = $quarto;
         $model->idCliente = Yii::$app->user->identity->id;
         $model->dataPedido = date('Y-m-d');
-//        $model->duracao = 1;
-//        $model->valorTotal = $valorNoite * $model->duracao;
         $model->valorTotal = $valorNoite;
-        $model->lotacao = $idQuarto->lotacao;
-        $model->duracao = 1;
+        $model->lotacao = $lotacao;
+        $model->duracao = $duracao;
 
-//        $model->idQuarto = $_GET['quarto'];
-//        $model->idCliente = Yii::$app->user->identity->id;
-//        $model->dataPedido = date('Y-m-d');
-//        $model->valorTotal = null;
 
 //        // to refresh current action
 //        $this->refresh();
