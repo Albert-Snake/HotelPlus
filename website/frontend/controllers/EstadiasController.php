@@ -1,5 +1,5 @@
 <?php
-
+//Start of the EstadiasController
 namespace frontend\controllers;
 
 use common\models\Estadias;
@@ -146,3 +146,16 @@ class EstadiasController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

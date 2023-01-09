@@ -1,5 +1,5 @@
 <?php
-
+//Start of the SiteController
 namespace frontend\controllers;
 
 use frontend\models\ResendVerificationEmailForm;
@@ -258,3 +258,13 @@ class SiteController extends Controller
         ]);
     }
 }
+
+
+
+
+
+
+
+
+
+

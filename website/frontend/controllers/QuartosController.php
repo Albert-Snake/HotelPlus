@@ -1,5 +1,5 @@
 <?php
-
+//Start of the QuartosController
 namespace frontend\controllers;
 
 use common\models\Quartos;
@@ -138,3 +138,17 @@ class QuartosController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

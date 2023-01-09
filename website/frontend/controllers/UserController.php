@@ -1,5 +1,5 @@
 <?php
-
+//Start of the UserController
 namespace frontend\controllers;
 
 use common\models\User;
@@ -142,3 +142,21 @@ class UserController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
