@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Jan-2023 às 13:10
+-- Tempo de geração: 09-Jan-2023 às 13:28
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -115,6 +115,145 @@ CREATE TABLE `auth_rule` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `cardapio`
+--
+
+CREATE TABLE `cardapio` (
+  `id` int(11) NOT NULL,
+  `categoria` enum('Carne','Peixe','Bebidas Lisas','Bebidas Gasosas','Bebidas Alcólicas','Sobremesas') NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `descricao` varchar(100) NOT NULL,
+  `valor` decimal(33,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `cardapio`
+--
+
+INSERT INTO `cardapio` (`id`, `categoria`, `nome`, `descricao`, `valor`) VALUES
+(2, 'Sobremesas', 'Torta de Chocolate', 'Torta transmontana com um fio de chocolate por cima', '12.40'),
+(3, 'Bebidas Alcólicas', 'Vinho Rose Mateus', 'Vinho Tinto marca Mateus com 14% volume alcoolico', '14.00'),
+(4, '', 'Vitela estufadae', 'Torta transmontana com um fio de chocolate por cima', '12.74');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `checkins`
+--
+
+CREATE TABLE `checkins` (
+  `idEstadia` int(11) NOT NULL,
+  `estado` enum('pago','não pago') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estadias`
+--
+
+CREATE TABLE `estadias` (
+  `id` int(11) NOT NULL,
+  `dataPedido` date NOT NULL,
+  `idCliente` int(11) NOT NULL,
+  `idQuarto` int(11) NOT NULL,
+  `dataInicio` date NOT NULL,
+  `dataTermo` date NOT NULL,
+  `duracao` int(11) NOT NULL,
+  `lotacao` int(11) NOT NULL,
+  `valorTotal` decimal(7,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `estadias`
+--
+
+INSERT INTO `estadias` (`id`, `dataPedido`, `idCliente`, `idQuarto`, `dataInicio`, `dataTermo`, `duracao`, `lotacao`, `valorTotal`) VALUES
+(1, '2023-01-02', 5, 304, '2023-01-02', '2023-01-07', 5, 4, '12.50'),
+(2, '2023-01-02', 5, 304, '2023-01-02', '2023-01-02', 0, 1, '12.50'),
+(3, '2023-01-02', 5, 304, '2023-01-02', '2023-01-02', 0, 1, '12.50'),
+(4, '2023-01-02', 5, 304, '2023-01-02', '2023-01-02', 0, 1, '12.50'),
+(5, '2023-01-02', 5, 304, '2023-01-02', '2023-01-02', 0, 1, '12.50'),
+(6, '2023-01-02', 5, 304, '2023-01-02', '2023-01-02', 0, 1, '12.50'),
+(7, '2023-01-08', 7, 304, '2023-01-10', '2023-01-17', 12, 4, '15.20'),
+(8, '2023-01-08', 8, 303, '2023-01-08', '2023-01-22', 0, 4, '15.20'),
+(9, '2023-01-08', 8, 304, '2023-01-08', '2023-01-10', 0, 3, '900.00'),
+(10, '2023-01-08', 8, 304, '2023-01-08', '2023-01-15', 0, 2, '150.00'),
+(11, '2023-01-08', 8, 304, '2023-01-09', '2023-01-12', 0, 2, '150.00'),
+(12, '2023-01-08', 8, 304, '2023-01-09', '2023-01-12', 0, 2, '150.00'),
+(13, '2023-01-08', 8, 304, '2023-01-09', '2023-01-12', 0, 2, '150.00');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `limpezas`
+--
+
+CREATE TABLE `limpezas` (
+  `id` int(11) NOT NULL,
+  `idColaborador` int(11) NOT NULL,
+  `idCliente` int(11) NOT NULL,
+  `idQuarto` int(11) NOT NULL,
+  `data` datetime NOT NULL,
+  `estado` enum('limpo','por limpar') NOT NULL,
+  `perturbar` enum('Não Pertubar','Perturbar') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `limpezas`
+--
+
+INSERT INTO `limpezas` (`id`, `idColaborador`, `idCliente`, `idQuarto`, `data`, `estado`, `perturbar`) VALUES
+(1, 7, 6, 304, '2023-01-09 00:00:00', 'limpo', 'Não Pertubar');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `mesas`
+--
+
+CREATE TABLE `mesas` (
+  `id` int(11) NOT NULL,
+  `lotacao` int(11) NOT NULL,
+  `forma` enum('redonda','quadrada','retângular') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `mesas`
+--
+
+INSERT INTO `mesas` (`id`, `lotacao`, `forma`) VALUES
+(1, 10, 'retângular'),
+(2, 15, 'redonda'),
+(3, 8, 'redonda'),
+(4, 7, 'retângular');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `mesasmarcacoes`
+--
+
+CREATE TABLE `mesasmarcacoes` (
+  `id` int(11) NOT NULL,
+  `idCliente` int(11) NOT NULL,
+  `idMesa` int(11) NOT NULL,
+  `nrPessoas` int(11) NOT NULL,
+  `data` date NOT NULL,
+  `estado` enum('entregue','não entregue') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `mesasmarcacoes`
+--
+
+INSERT INTO `mesasmarcacoes` (`id`, `idCliente`, `idMesa`, `nrPessoas`, `data`, `estado`) VALUES
+(1, 5, 3, 7, '2000-12-12', 'entregue'),
+(2, 6, 2, 5, '2023-01-02', 'não entregue');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `migration`
 --
 
@@ -136,6 +275,29 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 ('m190124_110200_add_verification_token_column_to_user_table', 1667818715),
 ('m200409_110543_rbac_update_mssql_trigger', 1667818764),
 ('m221107_105932_init_rbac', 1667818844);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `quartos`
+--
+
+CREATE TABLE `quartos` (
+  `id` int(4) NOT NULL,
+  `lotacao` int(11) NOT NULL,
+  `nrCamas` int(11) NOT NULL,
+  `nrCasasBanho` int(11) NOT NULL,
+  `acessoDef` enum('sim','não') NOT NULL,
+  `valorNoite` decimal(6,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `quartos`
+--
+
+INSERT INTO `quartos` (`id`, `lotacao`, `nrCamas`, `nrCasasBanho`, `acessoDef`, `valorNoite`) VALUES
+(303, 5, 2, 1, 'não', '150.20'),
+(304, 10, 5, 5, 'sim', '300.00');
 
 -- --------------------------------------------------------
 
@@ -205,10 +367,59 @@ ALTER TABLE `auth_rule`
   ADD PRIMARY KEY (`name`);
 
 --
+-- Índices para tabela `cardapio`
+--
+ALTER TABLE `cardapio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `checkins`
+--
+ALTER TABLE `checkins`
+  ADD PRIMARY KEY (`idEstadia`);
+
+--
+-- Índices para tabela `estadias`
+--
+ALTER TABLE `estadias`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_estadias_idCliente` (`idCliente`),
+  ADD KEY `fk_estadias_idQuarto` (`idQuarto`);
+
+--
+-- Índices para tabela `limpezas`
+--
+ALTER TABLE `limpezas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_limpezas_idColaborador` (`idColaborador`),
+  ADD KEY `fk_limpezas_idCliente` (`idCliente`),
+  ADD KEY `fk_limpezas_idQuarto` (`idQuarto`);
+
+--
+-- Índices para tabela `mesas`
+--
+ALTER TABLE `mesas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `mesasmarcacoes`
+--
+ALTER TABLE `mesasmarcacoes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_mesasMarcacoes_idCliente` (`idCliente`),
+  ADD KEY `fk_mesasMarcacoes_idMesa` (`idMesa`);
+
+--
 -- Índices para tabela `migration`
 --
 ALTER TABLE `migration`
   ADD PRIMARY KEY (`version`);
+
+--
+-- Índices para tabela `quartos`
+--
+ALTER TABLE `quartos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `user`
@@ -222,6 +433,42 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `cardapio`
+--
+ALTER TABLE `cardapio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `checkins`
+--
+ALTER TABLE `checkins`
+  MODIFY `idEstadia` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `estadias`
+--
+ALTER TABLE `estadias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de tabela `limpezas`
+--
+ALTER TABLE `limpezas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `mesas`
+--
+ALTER TABLE `mesas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `mesasmarcacoes`
+--
+ALTER TABLE `mesasmarcacoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `user`
@@ -251,6 +498,34 @@ ALTER TABLE `auth_item`
 ALTER TABLE `auth_item_child`
   ADD CONSTRAINT `auth_item_child_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `auth_item_child_ibfk_2` FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `checkins`
+--
+ALTER TABLE `checkins`
+  ADD CONSTRAINT `fk_checkIns_idEstadia` FOREIGN KEY (`idEstadia`) REFERENCES `estadias` (`id`);
+
+--
+-- Limitadores para a tabela `estadias`
+--
+ALTER TABLE `estadias`
+  ADD CONSTRAINT `fk_estadias_idCliente` FOREIGN KEY (`idCliente`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `fk_estadias_idQuarto` FOREIGN KEY (`idQuarto`) REFERENCES `quartos` (`id`);
+
+--
+-- Limitadores para a tabela `limpezas`
+--
+ALTER TABLE `limpezas`
+  ADD CONSTRAINT `fk_limpezas_idCliente` FOREIGN KEY (`idCliente`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `fk_limpezas_idColaborador` FOREIGN KEY (`idColaborador`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `fk_limpezas_idQuarto` FOREIGN KEY (`idQuarto`) REFERENCES `quartos` (`id`);
+
+--
+-- Limitadores para a tabela `mesasmarcacoes`
+--
+ALTER TABLE `mesasmarcacoes`
+  ADD CONSTRAINT `fk_mesasMarcacoes_idCliente` FOREIGN KEY (`idCliente`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `fk_mesasMarcacoes_idMesa` FOREIGN KEY (`idMesa`) REFERENCES `mesas` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
