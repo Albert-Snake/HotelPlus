@@ -2,6 +2,8 @@
 
 namespace backend\modules\api\controllers;
 
+use stdClass;
+use Yii;
 use yii\filters\auth\HttpBasicAuth;
 use yii\rest\ActiveController;
 
@@ -26,7 +28,17 @@ class UsersController extends ActiveController
         {
             return $user;
         }
-        throw new \yii\web\ForbiddenHttpException('No authentication'); //403
+        throw new \yii\web\ForbiddenHttpException('Sem Autenticação'); //403
+    }
+
+    public function actionLogin()
+    {
+        $request = Yii::$app->request;
+        $params = $request->authCredentials;
+        $user = \common\models\User::findByUsername($params);
+        return $user;
+
+
     }
 
 }

@@ -28,5 +28,12 @@ class LimpezasController extends ActiveController
         }
         throw new \yii\web\ForbiddenHttpException('No authentication'); //403
     }
+    public function actionNaopertubar($id)
+    {
+        $modelLimpezas = new $this->modelClass;
+        $recs = $modelLimpezas::find()->where('idQuarto'==$utilizador->id)->one();
+        return ['Alterado con sucesso'.$recs->estado];
+    }
+
 
 }

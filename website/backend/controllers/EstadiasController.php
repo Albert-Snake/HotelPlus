@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\Estadias;
 use common\models\EstadiasSearch;
+use common\models\Quartos;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -69,7 +70,21 @@ class EstadiasController extends Controller
     {
         $model = new Estadias();
 
+        $quarto = Quartos::findOne($model->idQuarto);
+
+
         if ($this->request->isPost) {
+            $inputum = strtotime($model->dataInicio);
+            $inputdois = strtotime($model->dataTermo);
+            $dataum = date('d/M/Y',$inputum);
+            $datadois = date('d/M/Y',$inputdois);
+            //$nDias = date_diff(date_create($dataum), date_create($datadois));
+
+            $model->dataPedido = date("Y/m/d");
+            var_dump($model->dataInicio, $datadois);
+            $model->duracao = $dataum . $datadois;
+            $model->valorTotal = 150;
+
             if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -91,7 +106,13 @@ class EstadiasController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
+
+        $quarto = Quartos::findOne($model->idQuarto);
+
+        $model->duracao = date_diff(date_create($model ->dataTermo), date_create($model->dataInicio));
+        $model->valorTotal = $quarto->valorNoite * $model->lotacao;
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
