@@ -167,6 +167,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return $this->getPrimaryKey();
     }
 
+    public function getNome()
+    {
+        return $this->nome.' '.$this->apelido;
+    }
+
     /**
      * {@inheritdoc}
      */

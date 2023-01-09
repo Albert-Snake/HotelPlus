@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'dataTermo')->textInput() ?>
 
-    <?= $form->field($model, 'duracao')->textInput() ?>
+    <?= $form->field($model, 'duracao',['onchange'=>'myFunction()'])->input('number') ?>
 
     <?= $form->field($model, 'lotacao')->textInput() ?>
 
@@ -33,5 +33,14 @@ use yii\widgets\ActiveForm;
     </div>
 
     <?php ActiveForm::end(); ?>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("estadias-datapedido").value;
+            document.getElementById("demo").innerHTML = "You selected: " + x;
+        }
+    </script>
 
 </div>

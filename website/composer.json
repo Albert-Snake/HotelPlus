@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap5": "~2.0.2",
         "yiisoft/yii2-symfonymailer": "~2.0.3",
         "hail812/yii2-adminlte3": "~1.1",
-      "ext-mysqli": "*"
+      "ext-mysqli": "*",
+        "ext-json": "*",
+        "ext-http": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
@@ -32,7 +34,9 @@
         "codeception/module-yii2": "^1.1",
         "codeception/module-filesystem": "^3.0 || ^1.1",
         "codeception/verify": "^2.2",
-        "symfony/browser-kit": "^6.0 || >=2.7 <=4.2.4"
+        "symfony/browser-kit": "^6.0 || >=2.7 <=4.2.4",
+        "codeception/module-webdriver": "^3.2",
+        "codeception/module-db": "^3.1"
     },
     "config": {
         "allow-plugins": {
