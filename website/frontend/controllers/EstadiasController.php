@@ -97,8 +97,12 @@ class EstadiasController extends Controller
         $model->idQuarto = $quarto;
         $model->idCliente = Yii::$app->user->identity->id;
         $model->dataPedido = date('Y-m-d');
+//        $model->duracao = 1;
+//        $model->valorTotal = $valorNoite * $model->duracao;
+        $model->valorTotal = $valorNoite;
+        $model->lotacao = $idQuarto->lotacao;
         $model->duracao = 1;
-        $model->valorTotal = $valorNoite * $model->duracao;
+
 //        $model->idQuarto = $_GET['quarto'];
 //        $model->idCliente = Yii::$app->user->identity->id;
 //        $model->dataPedido = date('Y-m-d');
