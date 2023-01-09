@@ -110,6 +110,11 @@ a.desc:after {
     padding-right: 30px;
 }
 
+div.form-group{
+    font-family: Magneto, Serif;
+}
+
+
 /* QUARTOS */
 /*div #index-quartos {
     background-color: #ffffff;
