@@ -1,6 +1,5 @@
 <?php
 
-use kartik\date\DatePicker;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -9,35 +8,39 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="estadias-form text-center" style="margin-left: 15%; margin-right: 15%">
+<div class="estadias-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-<!--    --><?php //= $form->field($model, 'dataPedido')->textInput(['readonly'=>true])->label('Data da Reserva') ?>
+    <?= $form->field($model, 'dataPedido')->textInput() ?>
 
-<!--    --><?php //= $form->field($model, 'idCliente')->textInput(['readonly' => true])->label('ID Cliente') ?>
+    <?= $form->field($model, 'idCliente')->textInput() ?>
 
-    <?= $form->field($model, 'idQuarto')->textInput(['readonly' => true])->label('Quarto') ?>
+    <?= $form->field($model, 'idQuarto')->textInput() ?>
 
-<!--    --><?php //= $form->field($model, 'dataInicio')->input(date_format('2022-01-03','Y-m-d'))?>
-    <?= $form->field($model, 'dataInicio')->input('date')->label('Data de Entrada') ?>
+    <?= $form->field($model, 'dataInicio')->textInput() ?>
 
-    <?= $form->field($model, 'dataTermo')->input('date')->label('Data de Saída') ?>
+    <?= $form->field($model, 'dataTermo')->textInput() ?>
 
-    <?= $form->field($model, 'duracao')->input('number')->label('Nº de Noites') ?>
+    <?= $form->field($model, 'duracao',['onchange'=>'myFunction()'])->input('number') ?>
 
-    <?= $form->field($model, 'lotacao')->input('number')->label('Nº de Pessoas') ?>
+    <?= $form->field($model, 'lotacao')->textInput() ?>
 
-    <?= $form->field($model, 'valorTotal')->textInput(['readonly' => true, 'maxlength' => true]) ?>
-
-
+    <?= $form->field($model, 'valorTotal')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <br>
-        <?= Html::submitButton('Guardar', ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Ver todos os Quartos', ['/quartos/index'], ['class'=>'btn btn-success']) ?>
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("estadias-datapedido").value;
+            document.getElementById("demo").innerHTML = "You selected: " + x;
+        }
+    </script>
 
 </div>

@@ -5,7 +5,7 @@ namespace backend\modules\api\controllers;
 use yii\filters\auth\HttpBasicAuth;
 use yii\rest\ActiveController;
 
-class CardapioController extends ActiveController
+class CardapiosController extends ActiveController
 {
     public $modelClass = 'common\models\Cardapio';
 
@@ -26,7 +26,6 @@ class CardapioController extends ActiveController
         {
             return $user;
         }
-        throw new \yii\web\ForbiddenHttpException('No authentication'); //403
+        throw new \yii\web\ForbiddenHttpException('Sem Autenticação'); //403
     }
-
 }

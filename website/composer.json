@@ -20,7 +20,8 @@
         "yiisoft/yii2-symfonymailer": "~2.0.3",
         "hail812/yii2-adminlte3": "~1.1",
       "ext-mysqli": "*",
-        "php-webdriver/webdriver": "^1.13"
+        "ext-json": "*",
+        "ext-http": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
