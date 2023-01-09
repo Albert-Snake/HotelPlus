@@ -56,7 +56,7 @@ class Estadias extends \yii\db\ActiveRecord
             'dataPedido' => 'Data Pedido',
             'idCliente' => 'Id Cliente',
             'idQuarto' => 'Id Quarto',
-            'dataInicio' => 'Data Inicio',
+            'dataInicio' => 'Data Início',
             'dataTermo' => 'Data Termo',
             'duracao' => 'Duracao',
             'lotacao' => 'Lotacao',
