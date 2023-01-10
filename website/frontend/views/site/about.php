@@ -25,7 +25,7 @@ $this->title = 'Sobre Nós';
                 <p>Nós, a HotelPlus, somos uma entidade Hoteleira que entrega soluções tecnológicas dentro do nosso estabelecimento para melhorar e/ou criar um ambiente de descanso mais eficaz sem precisar de qualquer contacto com nosso o staff </p>
                 <br>
                 <h4>Como o fazemos?</h4>
-                <p>Conseguimos simplesmente tornando os nossos sitemas o mais simples para o utilizador. Precisando apenas que o nosso cliente crie a sua própria conta e faça uma marcação de estadia no nosso estabelecimento. No check-in será entregue um dispositivo móvel para facilitar ainda mais a sua estadia e maximizar a esperiencia de relaxamento apenas com a distância de um clique.</p>
+                <p>Conseguimos simplesmente tornando os nossos sistemas o mais simples para o utilizador. Precisando apenas que o nosso cliente crie a sua própria conta e faça uma marcação de estadia no nosso estabelecimento. No check-in será entregue um dispositivo móvel para facilitar ainda mais a sua estadia e maximizar a esperiencia de relaxamento apenas com a distância de um clique.</p>
                 <br>
                 <h4>O que o Sistema permite fazer?</h4>
                 <p>Com um simples clique os nosso clientes podem ver a partir do programa, o cardapio do restaurante do nosso Hotel, podem fazer uma marcação de mesa, Visualizar as suas marcações, pedir uma limpeza para o seu quarto e permitir perturbar ou não perturbar o quarto. Muito Simples </p>
