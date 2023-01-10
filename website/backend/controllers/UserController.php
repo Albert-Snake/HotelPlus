@@ -30,7 +30,7 @@ class UserController extends Controller
                         [
                             'actions' => ['index', 'create', 'view', 'update', 'delete'],
                             'allow' => true,
-                            'permissions' => ['crudAll']
+                            'roles' => ['admin']
                         ],
                     ],
                 ],
@@ -51,6 +51,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
+
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 

@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\Limpezas;
 use common\models\LimpezasSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -21,6 +22,21 @@ class LimpezasController extends Controller
         return array_merge(
             parent::behaviors(),
             [
+                'access' => [
+                    'class' => AccessControl::class,
+                    'rules' => [
+                        [
+                            'actions' => ['index', 'create', 'view', 'update', 'delete'],
+                            'allow' => true,
+                            'roles' => ['admin']
+                        ],
+                        [
+                            'actions' => ['index', 'view', 'update'],
+                            'allow' => true,
+                            'roles' => ['colabLimpeza']
+                        ],
+                    ],
+                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
