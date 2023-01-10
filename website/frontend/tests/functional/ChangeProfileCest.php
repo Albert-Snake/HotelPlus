@@ -8,8 +8,7 @@ class ChangeProfileCest
 {
     public function _before(FunctionalTester $I)
     {
-        /*$I->amLoggedInAs(5);
-        $I->amOnPage('user/index/');*/
+        
     }
 
     // tests
