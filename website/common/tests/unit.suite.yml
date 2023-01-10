@@ -1,7 +1,11 @@
 suite_namespace: common\tests\unit
 actor: UnitTester
-bootstrap: false
 modules:
     enabled:
         - Yii2:
-            part: fixtures
+              part: [orm, email, fixtures]
+        - Asserts
+        - Db:
+              dsn: 'mysql:host=localhost;dbname=hptestes'
+              user: 'root'
+              password: ''
