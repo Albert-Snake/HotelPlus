@@ -92,12 +92,17 @@ $this->title = 'Nova Reserva';
         var lt;
 
         lt = lotacaouser.value;
+
         document.getElementById("estadias-lotacao").onchange = function() {
 
-            if(lotacaouser.value <= lt){
-
-            }
-            else{
+            // if(lotacaouser.value <= lt || lotacaouser.value >= 0){
+            //
+            // }
+            // else{
+            //     alert("Excedeu a lotação máxima do quarto.");
+            //     lotacaouser.value = lt;
+            // }
+            if(lotacaouser.value >= lt || lotacaouser.value <= 0){
                 alert("Excedeu a lotação máxima do quarto.");
                 lotacaouser.value = lt;
             }

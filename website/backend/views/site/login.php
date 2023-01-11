@@ -3,7 +3,8 @@ use yii\helpers\Html;
 ?>
 <link rel="stylesheet" href="/css/site.css">
 <div class="container text-center">
-    <img src= "/img/HPLogo48x48.svg" alt="HotelPlus" class="svgLogin">
+<!--    <img src= "/img/HPLogo48x48.svg" alt="HotelPlus" class="svgLogin">-->
+    <?= Html::img('@web/img/HPLogo48x48.svg', ['alt'=>'Hotel Plus', 'class'=>'svgLogin']); ?>
 </div>
 <div class="card">
     <div class="card-body login-card-body text-center">
@@ -46,12 +47,12 @@ use yii\helpers\Html;
         <?php \yii\bootstrap4\ActiveForm::end(); ?>
         <!-- /.social-auth-links -->
 
-        <p class="mb-1">
-            <a href="forgot-password.html">Esqueci-me da minha password</a>
-        </p>
-        <p class="mb-0">
-            <a href="register.html" class="text-center">Contactar um administrador</a>
-        </p>
+<!--        <p class="mb-1">-->
+<!--            <a href="forgot-password.html">Esqueci-me da minha password</a>-->
+<!--        </p>-->
+<!--        <p class="mb-0">-->
+<!--            <a href="register.html" class="text-center">Contactar um administrador</a>-->
+<!--        </p>-->
     </div>
     <!-- /.login-card-body -->
 </div>

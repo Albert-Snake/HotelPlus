@@ -1,11 +1,14 @@
 <?php
 
-namespace common\tests;
+namespace common\tests\Unit;
 
 use common\models\Mesasmarcacoes;
 
 class MesasMarcacoesTest extends \Codeception\Test\Unit
 {
+    /**
+     * @var \common\tests\UnitTester
+     */
 
     protected $tester;
 
@@ -63,7 +66,7 @@ class MesasMarcacoesTest extends \Codeception\Test\Unit
 
     }
 
-    public function testInsertUserPackage(){
+    public function testInsertMesasMarcacao(){
         $mesasM = new Mesasmarcacoes();
 
         $mesasM->idCliente = 6;
@@ -77,7 +80,7 @@ class MesasMarcacoesTest extends \Codeception\Test\Unit
             ['nrPessoas' => 5], ['data' => '2022-01-14'], ['estado' => 'não entregue']);
     }
 
-    public function testAlterUserPackage(){
+    public function testAlterMesasMarcacao(){
         $mesasM = new Mesasmarcacoes();
 
         $mesasM->idCliente = 7;
@@ -101,9 +104,10 @@ class MesasMarcacoesTest extends \Codeception\Test\Unit
 
         $this->tester->dontSeeRecord('common\models\Mesasmarcacoes', ['idCliente' => 7], ['idMesa' => 1],
             ['nrPessoas' => 5], ['data' => '2023-01-14'], ['estado' => 'não entregue']);
+
     }
 
-    public function testDeleteUserPackage(){
+    public function testDeleteMesasmarcacao(){
         $mesasM = new Mesasmarcacoes();
 
         $mesasM->idCliente = 8;
