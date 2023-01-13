@@ -18,7 +18,8 @@ $this->title = 'Sobre Nós';
     <div class="container" style="border: 2px; border-style: solid; border-color: #4e555b; border-radius: 15px; padding-top: 10px">
         <div class="row">
             <div class="col-4 text-center">
-                <img style="width:75%; border-radius: 15px" src="/imgs/HPLogo48x48.svg">
+<!--                <img style="width:75%; border-radius: 15px" src="/imgs/HPLogo48x48.svg">-->
+                <?= Html::img('@web/imgs/HPLogo48x48.svg', ['alt'=>'Hotel Plus', 'width'=>'400px', 'height'=>'400px']); ?>
             </div>
             <div class="col-8 text-left">
                 <h2>Quem Somos</h2>

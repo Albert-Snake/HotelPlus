@@ -3,12 +3,28 @@
 use yii\helpers\Html;
 
 ?>
+<style>
+    .labelNome{
+        color: white;
+        font-size: larger;
+    }
+
+    .svglogonav{
+        filter: invert(1);
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+</style>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <link rel="stylesheet" href="/css/site.css">
+<!--    <link rel="stylesheet" href="/css/site.css">-->
+    <link rel="stylesheet" href="../../web/css/site.css">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src= "/img/HPLogo48x48.svg" alt="HotelPlus" class="svglogonav">
-        <!--<span class="brand-text font-weight-light">HotelPlus</span>--!>
+<!--        <img src= "/img/HPLogo48x48.svg" alt="HotelPlus" class="svglogonav">-->
+        <?= Html::img('@web/img/HPLogo48x48.svg', ['alt'=>'Hotel Plus', 'class'=>'svglogonav']); ?>
+<!--        <span class="brand-text font-weight-light">HotelPlus</span>-->
     </a>
 
     <!-- Sidebar -->
@@ -18,13 +34,16 @@ use yii\helpers\Html;
             <div class="image">
                 <?php
                 if(Yii::$app->user->can('crudAll')){
-                    echo "<img src='/img/crown48.png' class='img-circle elevation-2' alt='Administrador'>";
+//                    echo "<img src='../../web/img/crown48.png' class='img-circle elevation-2' alt='Administrador'>";
+                    echo Html::img('@web/img/crown48.png', ['alt' => 'Administrador', 'class' => 'img-circle elevation-2']);
                 }
                 elseif (Yii::$app->user->can('crudCozinha')){
-                    echo "<img src='/img/fork48.png' class='img-circle elevation-2' alt='Cozinha'>";
+//                    echo "<img src='/img/fork48.png' class='img-circle elevation-2' alt='Cozinha'>";
+                    echo Html::img('@web/img/fork48.png', ['alt' => 'Cozinha', 'class' => 'img-circle elevation-2']);
                 }
                 elseif (Yii::$app->user->can('crudLimpeza')){
-                    echo "<img src='/img/cleaning.png' class='img-circle elevation-2' alt='Limpeza'>";
+//                    echo "<img src='/img/cleaning.png' class='img-circle elevation-2' alt='Limpeza'>";
+                    echo Html::img('@web/img/cleaning.png', ['alt' => 'Limpeza', 'class' => 'img-circle elevation-2']);
                 }
                 ?>
             </div>

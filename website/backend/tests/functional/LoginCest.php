@@ -15,15 +15,15 @@ class LoginCest
      * @see \Codeception\Module\Yii2::loadFixtures()
      * @return array
      */
-    public function _fixtures()
-    {
-        return [
-            'user' => [
-                'class' => UserFixture::class,
-                'dataFile' => codecept_data_dir() . 'login_data.php'
-            ]
-        ];
-    }
+//    public function _fixtures()
+//    {
+//        return [
+//            'user' => [
+//                'class' => UserFixture::class,
+//                'dataFile' => codecept_data_dir() . 'login_data.php'
+//            ]
+//        ];
+//    }
     
     /**
      * @param FunctionalTester $I

@@ -7,3 +7,5 @@ modules:
             browser: firefox
         - Yii2:
             part: init
+
+

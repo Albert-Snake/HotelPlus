@@ -4,7 +4,7 @@ namespace frontend\tests\functional;
 
 use frontend\tests\FunctionalTester;
 
-class AboutContactsCest
+class AboutContactCest
 {
     public function _before(FunctionalTester $I)
     {

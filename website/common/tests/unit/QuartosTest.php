@@ -77,7 +77,7 @@ class QuartosTest extends \Codeception\Test\Unit
 
     }
 
-    public function testInsertUserPackage(){
+    public function testInsertQuarto(){
         $quartos = new Quartos();
 
         $quartos->id = 1;
@@ -92,7 +92,7 @@ class QuartosTest extends \Codeception\Test\Unit
             ['nrCasasBanho' => 1], ['acessoDef' => 'não'], ['valorNoite' => 150]);
     }
 
-    public function testAlterUserPackage(){
+    public function testAlterQuarto(){
         $quartos = new Quartos();
 
         $quartos->id = 1;
@@ -120,7 +120,7 @@ class QuartosTest extends \Codeception\Test\Unit
             ['nrCasasBanho' => 2], ['acessoDef' => 'sim'], ['valorNoite' => 200]);
     }
 
-    public function testDeleteUserPackage(){
+    public function testDeleteQuarto(){
         $quartos = new Quartos();
 
         $quartos->id = 1;
