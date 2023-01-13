@@ -49,7 +49,16 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/cardapios'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/cardapios',
+                    'extraPatterns' => [
+                        'GET carnes' => 'carnes',
+                        'GET peixes' => 'peixes',
+                        'GET sobremesas' => 'sobremesas',
+                        'GET bebidaslisas' => 'bebidaslisas',
+                        'GET bebidasgasosas' => 'bebidasgasosas',
+                        'GET bebidasalcolicas' => 'bebidasalcolicas',
+                    ],
+                ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/mesas'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/quartos'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/mesasmarcacoes'],
