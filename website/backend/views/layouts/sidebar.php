@@ -21,7 +21,7 @@ use yii\helpers\Html;
 <!--    <link rel="stylesheet" href="/css/site.css">-->
     <link rel="stylesheet" href="../../web/css/site.css">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="<?=\yii\helpers\Url::home()?>" class="brand-link">
 <!--        <img src= "/img/HPLogo48x48.svg" alt="HotelPlus" class="svglogonav">-->
         <?= Html::img('@web/img/HPLogo48x48.svg', ['alt'=>'Hotel Plus', 'class'=>'svglogonav']); ?>
 <!--        <span class="brand-text font-weight-light">HotelPlus</span>-->
@@ -132,6 +132,14 @@ use yii\helpers\Html;
                         'items' => [
                             ['label' => 'Ver Marcações',  'icon' => 'eye', 'url' => ['estadias/index']],
                             ['label' => 'Criar Marcação',  'icon' => 'plus', 'url' => ['estadias/create']],
+                        ]
+                    ],
+                    //DEFESA
+                    //drawer Marcações de Tarefas
+                    ['label' => 'Tarefas',  'icon' => 'calendar',
+                        'items' => [
+                            ['label' => 'Ver Tarefas',  'icon' => 'eye', 'url' => ['tarefas/index']],
+                            ['label' => 'Criar Tarefa',  'icon' => 'plus', 'url' => ['tarefas/create']],
                         ]
                     ],
                 ],

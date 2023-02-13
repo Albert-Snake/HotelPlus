@@ -6,6 +6,8 @@ use yii\widgets\ActiveForm;
 /** @var yii\web\View $this */
 /** @var common\models\Estadias $model */
 /** @var yii\widgets\ActiveForm $form */
+
+
 ?>
 
 <div class="estadias-form text-center" style="margin-left: 15%; margin-right: 15%">
@@ -23,9 +25,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'dataTermo')->input('date')->label('Data de Saída') ?>
 
-    <?= $form->field($model, 'duracao')->input('number')->label('Nº de Noites') ?>
+    <?= $form->field($model, 'duracao')->textInput(['readonly' => true, 'maxlength' => true])->label('Nº de Noites') ?>
 
-    <?= $form->field($model, 'lotacao')->input('number')->label('Nº de Pessoas') ?>
+    <?= $form->field($model, 'lotacao')->dropDownList(range(1, $model->lotacao))->label('Nº de Pessoas') ?>
 
     <?= $form->field($model, 'valorTotal')->textInput(['readonly' => true, 'maxlength' => true]) ?>
 
