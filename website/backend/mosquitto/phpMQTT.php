@@ -36,6 +36,9 @@ namespace backend\mosquitto;
 
 /* phpMQTT */
 
+use Yii;
+use yii\helpers\Console;
+
 class phpMQTT
 {
     protected $socket;            /* holds the socket	*/
@@ -147,12 +150,31 @@ class phpMQTT
             );
             $this->socket = stream_socket_client('tls://' . $this->address . ':' . $this->port, $errno, $errstr, 60, STREAM_CLIENT_CONNECT, $socketContext);
         } else {
-            $this->socket = stream_socket_client('tcp://' . $this->address . ':' . $this->port, $errno, $errstr, 60, STREAM_CLIENT_CONNECT);
-        }
+            try {
+                $this->socket = stream_socket_client('tcp://' . $this->address . ':' . $this->port, $errno, $errstr, 60, STREAM_CLIENT_CONNECT);
+            }
+            catch (\Exception $ex) {
+                echo '<script>  
+                        $.ajax(
+                            {
+                                type: "get", //get, post, put, delete
+                                url: "https://jsonplaceholder.typicode.com/posts\n",
+                                //data: {"userId":2,"title":"Envio de JSON","body":"Envio de JSON Body"}, //JSON.stringify(data)
+                                async: false,
+                                dataType: "json",
+                                success: function(resp)
+                             {
+               
+                alert("Conexão com o servidor bem sucedida");
+                },  
+</script>';
+            }
+
 
         if (!$this->socket) {
             $this->_errorMessage("stream_socket_create() $errno, $errstr");
             return false;
+        }
         }
 
         stream_set_timeout($this->socket, 5);

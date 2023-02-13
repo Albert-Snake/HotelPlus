@@ -75,7 +75,7 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 text-center">
             <?php
             //card das estadias
-            if (Limpezas::find()->where('estado' == 'limpo')->count() <= 5){
+            /*if (Limpezas::find()->where('estado' == 'limpo')->count() <= 5){
                 $smallBox = \hail812\adminlte\widgets\SmallBox::begin([
                     'title' =>Limpezas::find()->where(['estado' => 'limpo'])->count(),
                     'text' => 'Limpezas Feitas',
@@ -92,15 +92,15 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
                     'theme' => 'gradient-success',
                     'linkUrl'=>'limpezas/index'
                 ]);
-            } ?>
-            <!--\hail812\adminlte\widgets\Ribbon::widget([
+            }*/ ?>
+                        <!--\hail812\adminlte\widgets\Ribbon::widget([
                 'id' => $smallBox->id.'-ribbon',
                 'text' => 'Ribbon',
                 'theme' => 'warning',
                 'size' => 'lg',
                 'textSize' => 'lg'
             ]) --!>
-            <?php \hail812\adminlte\widgets\SmallBox::end() ?>
+            <?php //\hail812\adminlte\widgets\SmallBox::end() ?>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 text-center">
             <?= \hail812\adminlte\widgets\SmallBox::widget([

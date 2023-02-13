@@ -69,6 +69,11 @@ return [
                         'GET login' => 'login',
                     ],
                 ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/calculadora',
+                    'extraPatterns' => [
+                        'GET pi' => 'pi',
+                    ],
+                ],
             ],
         ],
     ],

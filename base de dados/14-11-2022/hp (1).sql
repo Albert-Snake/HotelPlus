@@ -33,18 +33,6 @@ CREATE TABLE `auth_assignment` (
   `created_at` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Extraindo dados da tabela `auth_assignment`
---
-
-INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
-('admin', '1', 1667818844),
-('admin', '2', 1667818996),
-('cliente', '4', 1667818844),
-('colabCozinha', '3', 1667818844),
-('colabCozinha', '4', 1667819406),
-('colabLimpeza', '2', 1667818844);
-
 -- --------------------------------------------------------
 
 --
@@ -159,24 +147,10 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `user`
---
-
-INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `verification_token`) VALUES
-(1, 'Alberto', 'XxM5ZTw29VLV9H-bxhZngAAicJhYxRJ1', '$2y$13$ICKxjTAkdBV6585qJBxpme9WzLMvFDj50z8kf3o14UD6pkPjLX71e', NULL, 'albertoalvescorreia@gmail.com', 10, 1667818958, 1667818958, NULL),
-(2, 'AlbertoJr', 'HtslNnsu8ZTqfjwAUUi9A4RRxKIykIaP', '$2y$13$pN25SGe6pBG5wohQMaYNKuQwD30zC/Yb7IFAfALAFWOJgXYD/.oy2', NULL, 'albertoalvescorreia2@gmail.com', 10, 1667818996, 1667818996, NULL),
-(3, 'Rafael', 'oaYFW7fFPcUROXXUR451NqlKf_nwR2rT', '$2y$13$QXxz06whv/GNM2j8v836yuNUr7AEIEgwNlrTd6y/9rgpFWoGr03ii', NULL, 'rafael@mail.com', 10, 1667819374, 1667819374, NULL),
-(4, 'RafaelG', 'al0LBztnLx8Kd_iJ89nBncGat6p9xEsU', '$2y$13$TiexXX/QSqVh7EM/j5cZP.dvzL5G7zPUlIpr8FCzoSUG8mM5d.zqG', NULL, 'rafaelg@mail.com', 10, 1667819406, 1667819406, NULL);
-
---
--- Índices para tabelas despejadas
---
-
---
 -- Índices para tabela `auth_assignment`
 --
 ALTER TABLE `auth_assignment`
-  ADD PRIMARY KEY (`item_name`,`user_id`),
+  ADD PRIMARY KEY (`user_id`),
   ADD KEY `idx-auth_assignment-user_id` (`user_id`);
 
 --
