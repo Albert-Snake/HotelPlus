@@ -19,13 +19,14 @@ valorNoite DECIMAL (6,2) NOT NULL
 )ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS mesas(
-id INT NOT NULL PRIMARY KEY,
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 lotacao INT NOT NULL,
 forma ENUM('redonda','quadrada','retângular') NOT NULL
 )ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS mesasMarcacoes(
-idCliente INT NOT NULL PRIMARY KEY,
+id INT NOT NULL Primary Key AUTO_INCREMENT,
+idCliente INT NOT NULL,
 idMesa INT NOT NULL,
 nrPessoas INT NOT NULL,
 data datetime NOT NULL,
@@ -45,22 +46,24 @@ valorTotal DECIMAL (7,2) NOT NULL
 )ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS checkIns(
-idEstadia INT NOT NULL,
+idEstadia INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 estado ENUM('pago','não pago') NOT NULL
 )ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS limpezas(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 idColaborador INT NOT NULL,
 idCliente INT NOT NULL,
 idQuarto INT NOT NULL,
 data DATETIME NOT NULL,
-estado ENUM('limpo','por limpar') NOT NULL
+estado ENUM('limpo','por limpar') NOT NULL,
+perturbar ENUM('Não Pertubar', 'Perturbar') NOT NULL 
 )ENGINE = InnoDB;
 
 
 ALTER TABLE `mesasMarcacoes`
   ADD CONSTRAINT `fk_mesasMarcacoes_idCliente` FOREIGN KEY (`idCliente`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `fk_mesasMarcacoes_idQuarto` FOREIGN KEY (`idQuarto`) REFERENCES `quartos` (`id`);
+  ADD CONSTRAINT `fk_mesasMarcacoes_idMesa` FOREIGN KEY (`idMesa`) REFERENCES `mesas` (`id`);
 COMMIT;
 
 ALTER TABLE `estadias`

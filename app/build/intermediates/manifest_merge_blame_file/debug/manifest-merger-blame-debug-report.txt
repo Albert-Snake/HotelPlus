@@ -1,0 +1,78 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.hotelplusapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:5:5-24:19
+12        android:allowBackup="true"
+12-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.8.0] C:\Users\Alberto Correia\.gradle\caches\transforms-3\882d48eed7854c24bdca6c099371f305\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:7:9-43
+16        android:label="@string/app_name"
+16-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:8:9-41
+17        android:roundIcon="@mipmap/ic_launcher_round"
+17-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:9:9-54
+18        android:supportsRtl="true"
+18-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:10:9-35
+19        android:testOnly="true"
+20        android:theme="@style/Theme.HotelPlusApp" >
+20-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:11:9-50
+21        <activity
+21-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:12:9-14:39
+22            android:name="com.example.hotelplusapp.LoginActivity"
+22-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:13:13-42
+23            android:exported="true" />
+23-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:14:13-36
+24        <activity
+24-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:15:9-23:20
+25            android:name="com.example.hotelplusapp.MainActivity"
+25-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:16:13-41
+26            android:exported="true" >
+26-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:17:13-36
+27            <intent-filter>
+27-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:18:13-22:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:19:17-69
+28-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:19:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:21:17-77
+30-->C:\xampp\htdocs\projeto_22_23\HotelPlus\app\src\main\AndroidManifest.xml:21:27-74
+31            </intent-filter>
+32        </activity>
+33
+34        <provider
+34-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Alberto Correia\.gradle\caches\transforms-3\e4bce1f52ee3a20167e5ac3f3ff48c6c\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+35            android:name="androidx.startup.InitializationProvider"
+35-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Alberto Correia\.gradle\caches\transforms-3\e4bce1f52ee3a20167e5ac3f3ff48c6c\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+36            android:authorities="com.example.hotelplusapp.androidx-startup"
+36-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Alberto Correia\.gradle\caches\transforms-3\e4bce1f52ee3a20167e5ac3f3ff48c6c\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+37            android:exported="false" >
+37-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Alberto Correia\.gradle\caches\transforms-3\e4bce1f52ee3a20167e5ac3f3ff48c6c\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+38            <meta-data
+38-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Alberto Correia\.gradle\caches\transforms-3\e4bce1f52ee3a20167e5ac3f3ff48c6c\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+39                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+39-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Alberto Correia\.gradle\caches\transforms-3\e4bce1f52ee3a20167e5ac3f3ff48c6c\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+40                android:value="androidx.startup" />
+40-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Alberto Correia\.gradle\caches\transforms-3\e4bce1f52ee3a20167e5ac3f3ff48c6c\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+41            <meta-data
+41-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Alberto Correia\.gradle\caches\transforms-3\f01192a4ab698af49227468fd97e3fea\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+42                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+42-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Alberto Correia\.gradle\caches\transforms-3\f01192a4ab698af49227468fd97e3fea\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+43                android:value="androidx.startup" />
+43-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Alberto Correia\.gradle\caches\transforms-3\f01192a4ab698af49227468fd97e3fea\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+44        </provider>
+45    </application>
+46
+47</manifest>

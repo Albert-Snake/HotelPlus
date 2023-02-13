@@ -11,7 +11,7 @@ use Yii;
  * @property int $idColaborador
  * @property int $idCliente
  * @property int $idQuarto
- * @property string $data
+ * @property string|null $data
  * @property string $estado
  * @property string $perturbar
  *
@@ -35,7 +35,7 @@ class Limpezas extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idColaborador', 'idCliente', 'idQuarto', 'data', 'estado', 'perturbar'], 'required'],
+            [['idColaborador', 'idCliente', 'idQuarto', 'estado', 'perturbar'], 'required'],
             [['idColaborador', 'idCliente', 'idQuarto'], 'integer'],
             [['data'], 'safe'],
             [['estado', 'perturbar'], 'string'],
