@@ -84,26 +84,29 @@ class EstadiasController extends Controller
      */
     public function actionCreate($quarto)
     {
-        $idQuarto = Quartos::find()->where(['id' => $quarto])->one();
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['site/login']);
+        }else{
+            $idQuarto = Quartos::find()->where(['id' => $quarto])->one();
 
-        if($quarto != ''){
-            $valorNoite = $idQuarto->valorNoite;
-            $lotacao = $idQuarto->lotacao;
-            $duracao = 1;
-        }
-        else{
-            $valorNoite = null;
-            $lotacao = null;
-            $duracao = null;
-        }
+            if($quarto != ''){
+                $valorNoite = $idQuarto->valorNoite;
+                $lotacao = $idQuarto->lotacao;
+                $duracao = 1;
+            }
+            else{
+                $valorNoite = null;
+                $lotacao = null;
+                $duracao = null;
+            }
 
-        $model = new Estadias();
-        $model->idQuarto = $quarto;
-        $model->idCliente = Yii::$app->user->identity->id;
-        $model->dataPedido = date('Y-m-d');
-        $model->valorTotal = $valorNoite;
-        $model->lotacao = $lotacao;
-        $model->duracao = $duracao;
+            $model = new Estadias();
+            $model->idQuarto = $quarto;
+            $model->idCliente = Yii::$app->user->identity->id;
+            $model->dataPedido = date('Y-m-d');
+            $model->valorTotal = $valorNoite;
+            $model->lotacao = $lotacao;
+            $model->duracao = $duracao;
 
 
 //        // to refresh current action
@@ -111,22 +114,27 @@ class EstadiasController extends Controller
 //        // or
 //        Yii::app()->controller->refresh();
 
-        if ($this->request->isPost) {
+            if ($this->request->isPost) {
 
 //            $model->duracao = date('Y-m-d',$model->dataTermo) - date('Y-m-d', $model->dataInicio);
 //            $model->valorTotal = $valorNoite * $model->lotacao;
 
-            if ($model->load($this->request->post()) && $model->save()) {
+                //$model->lotacao = $model->lotacao + 1;
+
+                if ($model->load($this->request->post()) && $model->save()) {
 //                return $this->redirect(['view', 'id' => $model->id]);
-                return $this->redirect(['index', 'id' => $model->id]);
+                    return $this->redirect(['index', 'id' => $model->id]);
+                }
+            } else {
+                $model->loadDefaultValues();
             }
-        } else {
-            $model->loadDefaultValues();
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+
     }
 
     /**
