@@ -16,12 +16,6 @@ class EstadiasTest extends \Codeception\Test\Unit
     {
     }
 
-    // tests
-    public function testSomeFeature()
-    {
-
-    }
-
     //TESTES
     public function testValidations(){
         $estadias = new Estadias();

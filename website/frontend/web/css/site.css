@@ -110,9 +110,17 @@ a.desc:after {
     padding-right: 30px;
 }
 
-div.form-group{
+/*div.form-group{*/
+/*    font-family: Magneto, Serif;*/
+/*}*/
+
+label.control-label{
     font-family: Magneto, Serif;
 }
+div.form-group button.btn.btn-success{
+    font-family: Magneto, Serif
+}
+
 
 
 /* QUARTOS */

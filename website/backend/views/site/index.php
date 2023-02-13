@@ -18,9 +18,10 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 text-center">
             <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => Cardapio::find()->count(),
-                'text' => 'Items no Cardapio',
+                'text' => 'Itens do Cardápio',
                 'icon' => 'fas fa-utensils',
                 'linkUrl'=>'cardapio/index',
+                'linkText' => 'Mais informações'
             ]) ?>
         </div>
 
@@ -30,11 +31,12 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
             //card das estadias
             if (Mesasmarcacoes::find()->count() <= 5){
                 $smallBox = \hail812\adminlte\widgets\SmallBox::begin([
-                    'title' =>Mesasmarcacoes::find()->count(),
+                    'title' => Mesasmarcacoes::find()->count(),
                     'text' => 'Mesas Reservadas',
                     'icon' => 'fas fa-utensils',
                     'theme' => 'warning',
-                    'linkUrl'=>'mesasmarcacoes/index'
+                    'linkUrl'=>'mesasmarcacoes/index',
+                    'linkText' => 'Mais informações'
                 ]);
             }
             elseif (Mesasmarcacoes::find()->count() > 5){
@@ -43,7 +45,8 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
                     'text' => 'Mesas Reservadas',
                     'icon' => 'fas fa-utensils',
                     'theme' => 'gradient-success',
-                    'linkUrl'=>'mesasmarcacoes/index'
+                    'linkUrl'=>'mesasmarcacoes/index',
+                    'linkText' => 'Mais informações'
                 ]);
             } ?>
             <?php \hail812\adminlte\widgets\SmallBox::end() ?>
@@ -54,7 +57,8 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
                 'text' => 'Nº de Mesas',
                 'icon' => 'fas fa-utensils',
                 'theme' => 'gradient-success',
-                'linkUrl'=>'mesas/index'
+                'linkUrl'=>'mesas/index',
+                'linkText' => 'Mais informações'
             ]) ?>
         </div>
     </div>
@@ -67,7 +71,8 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
                 'title' => Limpezas::find()->count(),
                 'text' => 'Todas as Limpezas',
                 'icon' => 'fas fa-broom',
-                'linkUrl'=>'limpezas/index'
+                'linkUrl'=>'limpezas/index',
+                'linkText' => 'Mais informações'
             ]) ?>
         </div>
 
@@ -78,19 +83,21 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
             /*if (Limpezas::find()->where('estado' == 'limpo')->count() <= 5){
                 $smallBox = \hail812\adminlte\widgets\SmallBox::begin([
                     'title' =>Limpezas::find()->where(['estado' => 'limpo'])->count(),
-                    'text' => 'Limpezas Feitas',
+                    'text' => 'Limpezas Realizadas',
                     'icon' => 'fas fa-broom',
                     'theme' => 'warning',
-                    'linkUrl'=>'limpezas/index'
+                    'linkUrl'=>'limpezas/index',
+                    'linkText' => 'Mais informações'
                 ]);
             }
             elseif (Limpezas::find()->where('estado' == 'limpo') > 5){
                 $smallBox = \hail812\adminlte\widgets\SmallBox::begin([
                 'title' =>Limpezas::find()->where(['estado' => 'limpo'])->count(),
-                    'text' => 'Limpezas Feitas',
+                    'text' => 'Limpezas Realizadas',
                     'icon' => 'fas fa-broom',
                     'theme' => 'gradient-success',
-                    'linkUrl'=>'limpezas/index'
+                    'linkUrl'=>'limpezas/index',
+                    'linkText' => 'Mais informações'
                 ]);
             }*/ ?>
                         <!--\hail812\adminlte\widgets\Ribbon::widget([
@@ -105,10 +112,11 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 text-center">
             <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => Limpezas::find()->where(['estado' => 'por limpar'])->count(),
-                'text' => 'Limpezas por Fazer',
+                'text' => 'Limpezas por Realizar',
                 'icon' => 'fas fa-broom',
                 'theme' => 'warning',
-                'linkUrl'=>'limpezas/index'
+                'linkUrl'=>'limpezas/index',
+                'linkText' => 'Mais informações'
             ]) ?>
         </div>
     </div>
@@ -119,9 +127,10 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
 
             <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => Quartos::find()->count(),
-                'text' => 'Nº de Quartos Total',
+                'text' => 'Nº de Quartos',
                 'icon' => 'fas fa-door-open',
-                'linkUrl'=>'quartos/index'
+                'linkUrl'=>'quartos/index',
+                'linkText' => 'Mais informações'
             ]) ?>
         </div>
 
@@ -131,10 +140,11 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
             //card das estadiaS
                 $smallBox = \hail812\adminlte\widgets\SmallBox::begin([
                     'title' => Quartos::find()->WHERE(['acessoDef' => 'sim'])->count(),
-                    'text' => 'Com Acesso a Deficientes',
+                    'text' => 'Quartos c/ Acesso a Deficientes',
                     'icon' => 'fas fa-door-open',
                     'theme' => 'gradient-success',
-                    'linkUrl'=>'quartos/index'
+                    'linkUrl'=>'quartos/index',
+                    'linkText' => 'Mais informações'
                 ]);
             ?>
             <!--\hail812\adminlte\widgets\Ribbon::widget([
@@ -149,10 +159,11 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 text-center">
             <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => Quartos::find()->WHERE(['acessoDef'=> 'não'])->count(),
-                'text' => 'Sem Acesso a Deficientes',
+                'text' => 'Quartos s/ Acesso a Deficientes',
                 'icon' => 'fas fa-door-open',
                 'theme' => 'gradient-success',
-                'linkUrl'=>'quartos/index'
+                'linkUrl'=>'quartos/index',
+                'linkText' => 'Mais informações'
             ]) ?>
         </div>
     </div>
@@ -163,9 +174,10 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
 
             <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => Estadias::find()->count(),
-                'text' => 'Total de Estadias',
+                'text' => 'Nº de Estadias',
                 'icon' => 'fas fa-utensils',
-                'linkUrl'=>'estadias/index'
+                'linkUrl'=>'estadias/index',
+                'linkText' => 'Mais informações'
             ]) ?>
         </div>
 
@@ -221,6 +233,7 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
                 'text' => 'Utilizadores Registados',
                 'icon' => 'fas fa-user-plus',
                 'linkUrl'=>'user/index',
+                'linkText' => 'Mais informações'
             ]) ?>
         </div>
 
@@ -233,7 +246,8 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
                     'text' => 'Clientes Registados',
                     'icon' => 'fas fa-user-plus',
                     'theme' => 'warning',
-                    'linkUrl'=>'user/index'
+                    'linkUrl'=>'user/index',
+                    'linkText' => 'Mais informações'
                 ]);
             }
             elseif (User::find()->where(['cargo' => 'cliente'])->count() >= 5){
@@ -242,7 +256,8 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
                     'text' => 'Clientes Registados',
                     'icon' => 'fas fa-user-plus',
                     'theme' => 'gradient-success',
-                    'linkUrl'=>'user/index'
+                    'linkUrl'=>'user/index',
+                    'linkText' => 'Mais informações'
                 ]);
             } ?>
             <!--\hail812\adminlte\widgets\Ribbon::widget([
@@ -261,6 +276,7 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
                 'icon' => 'fas fa-user-plus',
                 'theme' => 'gradient-success',
                 'linkUrl'=>'user/index',
+                'linkText' => 'Mais informações'
                 //'loadingStyle' => true
             ]) ?>
         </div>

@@ -48,6 +48,7 @@ AppAsset::register($this);
 
     if(!Yii::$app->user->isGuest){
         $menuItems[] = ['label' => 'Perfil', 'url' => ['/user/index']];
+        $menuItems[] = ['label' => 'Tarefas', 'url' => ['/tarefas/index']];
     }
 
     echo Nav::widget([
