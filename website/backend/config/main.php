@@ -61,8 +61,16 @@ return [
                 ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/mesas'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/quartos'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/mesasmarcacoes'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/limpezas'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/mesasmarcacoes',
+                    'extraPatterns' => [
+                        'POST nova' => 'nova',
+                    ],
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/limpezas',
+                    'extraPatterns' => [
+                        'POST nova' => 'nova',
+                    ],
+                ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/estadias'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/users',
                     'extraPatterns' => [
