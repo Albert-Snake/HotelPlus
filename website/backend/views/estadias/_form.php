@@ -41,35 +41,5 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton('Guardar Dados', ['class' => 'btn btn-success']) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
-
-    <script>
-        const lotacao = document.getElementById('estadias-lotacao');
-        const dataInicio = document.getElementById('estadias-datainicio');
-        const dataTermo = document.getElementById('estadias-datatermo');
-        const valortotal = document.getElementById('demo');
-        const duracao = document.getElementById('tempo');
-        var inicio;
-
-        lotacao.addEventListener('input', updateValue);
-        dataInicio.addEventListener('input', dataUm);
-        dataTermo.addEventListener('input', duracaoValue);
-
-
-        function updateValue(e) {
-            valortotal.textContent = e.target.value * 150 +'€';
-        }
-
-        function duracaoValue(a){
-
-            duracao.textContent = (a.getTime()- inicio) / (1000*3600*24);
-        }
-
-        function dataUm(b) {
-            inicio = b.getTime();
-            console.log(inicio);
-        }
-
-    </script>
 
 </div>

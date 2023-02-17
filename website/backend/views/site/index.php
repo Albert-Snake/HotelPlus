@@ -110,14 +110,7 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
             <?php //\hail812\adminlte\widgets\SmallBox::end() ?>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-            <?= \hail812\adminlte\widgets\SmallBox::widget([
-                'title' => Limpezas::find()->where(['estado' => 'por limpar'])->count(),
-                'text' => 'Limpezas por Realizar',
-                'icon' => 'fas fa-broom',
-                'theme' => 'warning',
-                'linkUrl'=>'limpezas/index',
-                'linkText' => 'Mais informações'
-            ]) ?>
+
         </div>
     </div>
     <br>
@@ -175,7 +168,7 @@ $this->title = 'Bem-Vindo ' . Yii::$app->user->identity->username;
             <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => Estadias::find()->count(),
                 'text' => 'Nº de Estadias',
-                'icon' => 'fas fa-utensils',
+                'icon' => 'fas fa-calendar',
                 'linkUrl'=>'estadias/index',
                 'linkText' => 'Mais informações'
             ]) ?>

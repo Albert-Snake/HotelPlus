@@ -131,7 +131,7 @@ use yii\helpers\Html;
                     ['label' => 'Estadias',  'icon' => 'calendar', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
                             ['label' => 'Ver Estadias',  'icon' => 'eye', 'url' => ['estadias/index']],
-                            ['label' => 'Criar Estadia',  'icon' => 'plus', 'url' => ['estadias/create']],
+                            //['label' => 'Criar Estadia',  'icon' => 'plus', 'url' => ['estadias/create']],
                         ]
                     ],
                 ],

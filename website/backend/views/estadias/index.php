@@ -17,9 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
-    <p>
-        <?= Html::a('Criar Estadia', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -38,12 +35,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'duracao',
             'lotacao',
             'valorTotal',
-            [
+            /*[
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Estadias $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
-            ],
+            ],*/
         ],
     ]); ?>
 
