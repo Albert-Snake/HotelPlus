@@ -15,10 +15,10 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'idColaborador')->textInput() ?>
-    dropDownList(User::find()->where(['cargo' => 'limpezas'])->asArray()->all())?>
+<!--    dropDownList(User::find()->where(['cargo' => 'limpezas'])->asArray()->all())?>-->
 
     <?= $form->field($model, 'idCliente')->textInput() ?>
-    dropDownList(User::find()->where(['cargo' => 'cliente'])->asArray()->all())?>
+<!--    dropDownList(User::find()->where(['cargo' => 'cliente'])->asArray()->all())?>-->
 
     <?= $form->field($model, 'idQuarto')->textInput() ?>
 
@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'perturbar')->dropDownList([ 'Não Pertubar' => 'Não Pertubar', 'Perturbar' => 'Perturbar', ], ['prompt' => '']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Guardar Dados', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

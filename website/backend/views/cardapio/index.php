@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /** @var common\models\CardapioSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Cardapios';
+$this->title = 'Itens do Cardápio';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -37,10 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
 </script>
 <div class="cardapio-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     <p>
-        <?= Html::a('Create Cardapio', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Criar Item do Cardápio', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

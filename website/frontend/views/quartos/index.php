@@ -20,7 +20,7 @@ $this->title = 'Quartos 🛏';
     <br>
     <?php foreach($quartos as $quarto){ ?>
         <div id="index-quartos" class="container-fluid border border-primary rounded-4 border-3 text-center" style="padding: 15px">
-            <div class="col-3 text-left">
+            <div class="col-12 text-center">
                 <p><img src="../../web/imgs/arrow-right-circle-fill.svg" width="10" height="10"><b> Lotação: </b><?= $quarto->lotacao ?></p>
                 <p><img src="../../web/imgs/arrow-right-circle-fill.svg" width="10" height="10"><b> Camas: </b><?= $quarto->nrCamas ?></p>
                 <p><img src="../../web/imgs/arrow-right-circle-fill.svg" width="10" height="10"><b> Casas de Banho: </b><?= $quarto->nrCasasBanho ?></p>

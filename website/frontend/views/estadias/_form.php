@@ -8,6 +8,10 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 
 
+for ($i = 1; $i <= $model->lotacao; $i++) {
+    $array[$i] = $i;
+}
+
 ?>
 
 <div class="estadias-form text-center" style="margin-left: 15%; margin-right: 15%">
@@ -27,7 +31,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'duracao')->textInput(['readonly' => true, 'maxlength' => true])->label('Nº de Noites') ?>
 
-    <?= $form->field($model, 'lotacao')->dropDownList(range(1, $model->lotacao))->label('Nº de Pessoas') ?>
+<!--    --><?php //= $form->field($model, 'lotacao')->dropDownList(range($array[1], $model->lotacao))->label('Nº de Pessoas') ?>
+    <?= $form->field($model, 'lotacao')->dropDownList($array)->label('Nº de Pessoas') ?>
 
     <?= $form->field($model, 'valorTotal')->textInput(['readonly' => true, 'maxlength' => true]) ?>
 

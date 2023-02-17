@@ -130,16 +130,8 @@ use yii\helpers\Html;
                     //drawer Marcações de estadias
                     ['label' => 'Estadias',  'icon' => 'calendar', 'visible' => Yii::$app->user->can('crudAll'),
                         'items' => [
-                            ['label' => 'Ver Marcações',  'icon' => 'eye', 'url' => ['estadias/index']],
-                            ['label' => 'Criar Marcação',  'icon' => 'plus', 'url' => ['estadias/create']],
-                        ]
-                    ],
-                    //DEFESA
-                    //drawer Marcações de Tarefas
-                    ['label' => 'Tarefas',  'icon' => 'calendar',
-                        'items' => [
-                            ['label' => 'Ver Tarefas',  'icon' => 'eye', 'url' => ['tarefas/index']],
-                            ['label' => 'Criar Tarefa',  'icon' => 'plus', 'url' => ['tarefas/create']],
+                            ['label' => 'Ver Estadias',  'icon' => 'eye', 'url' => ['estadias/index']],
+                            ['label' => 'Criar Estadia',  'icon' => 'plus', 'url' => ['estadias/create']],
                         ]
                     ],
                 ],

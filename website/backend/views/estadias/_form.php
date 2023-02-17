@@ -23,22 +23,22 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'lotacao')->Input('number') ?>
 
-    <br>
-
-    <div class="text-center" style="border-color: black; border: solid; margin:auto">
-        <H2>Total de Noites</H2>
-        <p id="tempo"></p>
-    </div>
-
-    <br>
-
-    <div class="text-center" style="border-color: black; border: solid; margin:auto">
-        <H2>Valor Total</H2>
-        <p id="demo"></p>
-    </div>
+<!--    <br>-->
+<!---->
+<!--    <div class="text-center" style="border-color: black; border: solid; margin:auto">-->
+<!--        <H2>Total de Noites</H2>-->
+<!--        <p id="tempo"></p>-->
+<!--    </div>-->
+<!---->
+<!--    <br>-->
+<!---->
+<!--    <div class="text-center" style="border-color: black; border: solid; margin:auto">-->
+<!--        <H2>Valor Total</H2>-->
+<!--        <p id="demo"></p>-->
+<!--    </div>-->
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Guardar Dados', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

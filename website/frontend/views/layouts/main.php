@@ -48,7 +48,6 @@ AppAsset::register($this);
 
     if(!Yii::$app->user->isGuest){
         $menuItems[] = ['label' => 'Perfil', 'url' => ['/user/index']];
-        $menuItems[] = ['label' => 'Tarefas', 'url' => ['/tarefas/index']];
     }
 
     echo Nav::widget([
@@ -77,17 +76,17 @@ AppAsset::register($this);
 
 <main role="main" class="flex-shrink-0">
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
+<!--        --><?php //= Breadcrumbs::widget([
+//            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+//        ]) ?>
+<!--        --><?php //= Alert::widget() ?>
         <?= $content ?>
     </div>
 </main>
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
-        <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <p class="float-start"><b>&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></b></p>
 <!--        <p class="float-end">--><?php //= Yii::powered() ?><!--</p>-->
     </div>
 </footer>

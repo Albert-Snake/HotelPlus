@@ -106,7 +106,7 @@ class EstadiasController extends Controller
             $model->dataPedido = date('Y-m-d');
             $model->valorTotal = $valorNoite;
             $model->lotacao = $lotacao;
-            $model->duracao = $duracao;
+            //$model->duracao = $duracao;
 
 
 //        // to refresh current action
@@ -119,7 +119,7 @@ class EstadiasController extends Controller
 //            $model->duracao = date('Y-m-d',$model->dataTermo) - date('Y-m-d', $model->dataInicio);
 //            $model->valorTotal = $valorNoite * $model->lotacao;
 
-                //$model->lotacao = $model->lotacao + 1;
+//                $model->lotacao = $model->lotacao + 1;
 
                 if ($model->load($this->request->post()) && $model->save()) {
 //                return $this->redirect(['view', 'id' => $model->id]);
