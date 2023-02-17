@@ -15,10 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="limpezas-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     <p>
-        <?= Html::a('Create Limpezas', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Criar Limpeza', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'idCliente',
             'idQuarto',
             'data',
-            //'estado',
+            'estado',
             //'perturbar',
             [
                 'class' => ActionColumn::className(),

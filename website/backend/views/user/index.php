@@ -22,6 +22,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'text' => 'Administradores',
             'icon' => 'fas fa-crown',
             'theme' => 'gradient',
+            //'linkUrl'=>'',
+            'linkText' => 'Mais informações',
         ]) ?>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-12 text-center">
@@ -31,6 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'text' => 'Limpezas',
             'icon' => 'fas fa-broom',
             'theme' => 'gradient',
+            //'linkUrl'=>'',
+            'linkText' => 'Mais informações',
             //'loadingStyle' => true
         ]) ?>
         <?= \hail812\adminlte\widgets\SmallBox::widget([
@@ -38,6 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'text' => 'Clientes',
             'icon' => 'fas fa-user',
             'theme' => 'gradient',
+            //'linkUrl'=>'',
+            'linkText' => 'Mais informações',
             //'loadingStyle' => true
         ]) ?>
     </div>
@@ -47,6 +53,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'text' => 'Restauração',
             'icon' => 'fas fa-utensils',
             'theme' => 'gradient',
+            //'linkUrl'=>'',
+            'linkText' => 'Mais informações',
             //'loadingStyle' => true
         ]) ?>
     </div>

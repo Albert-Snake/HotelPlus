@@ -10,15 +10,15 @@ use yii\grid\GridView;
 /** @var common\models\MesasmarcacoesSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Mesasmarcacoes';
+$this->title = 'Marcações';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mesasmarcacoes-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     <p>
-        <?= Html::a('Create Mesasmarcacoes', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Criar Marcação', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

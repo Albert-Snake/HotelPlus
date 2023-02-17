@@ -15,10 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="estadias-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     <p>
-        <?= Html::a('Create Estadias', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Criar Estadia', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -34,10 +34,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'idCliente',
             'idQuarto',
             'dataInicio',
-            //'dataTermo',
-            //'duracao',
-            //'lotacao',
-            //'valorTotal',
+            'dataTermo',
+            'duracao',
+            'lotacao',
+            'valorTotal',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Estadias $model, $key, $index, $column) {
