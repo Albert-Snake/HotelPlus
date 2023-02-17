@@ -2,6 +2,8 @@
 
 namespace backend\modules\api\controllers;
 
+use common\models\Mesasmarcacoes;
+use Yii;
 use yii\filters\auth\HttpBasicAuth;
 use yii\rest\ActiveController;
 
@@ -27,5 +29,28 @@ class MesasmarcacoesController extends ActiveController
             return $user;
         }
         throw new \yii\web\ForbiddenHttpException('No authentication'); //403
+    }
+    public function actionNova(){
+
+        $request = Yii::$app->request;
+
+        $params = $request->getBodyParams();
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+
+        $mesaMarcacao = new Mesasmarcacoes();
+        $mesaMarcacao->nrPessoas = $params['nrpessoas'];
+        $mesaMarcacao->idCliente = $params['idCliente'];
+        $mesaMarcacao->idMesa = $params['idMesa'];
+        $mesaMarcacao->estado = "nao entregue";
+        $mesaMarcacao->data = date('Y-m-d');
+
+        if ($mesaMarcacao->save()){
+            return $mesaMarcacao;
+        }
+        else{
+            return null;
+        }
+
     }
 }
